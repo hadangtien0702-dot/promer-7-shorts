@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorts 02 Storyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0e0f13; --card:#17181e; --line:#2a2c35; --text:#e9eaf0; --sub:#9a9db0; --accent:#ff7a1a; --promer:#E2E3E9; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif; padding:24px 16px 48px; }
+  .wrap { max-width:1600px; margin:0 auto; }
+  h1 { font-size:20px; font-weight:600; margin:0 0 6px; }
+  h2 { font-size:18px; font-weight:600; margin:0 0 6px; }
+  h2 .tag { display:inline-block; font:500 12px "DM Mono",monospace; background:var(--accent); color:#111; padding:2px 8px; border-radius:6px; margin-right:8px; vertical-align:2px; }
+  h2 .tag.b { background:#5aa9ff; } h2 .tag.c { background:#c38bff; }
+  .meta { color:var(--sub); font-size:13px; line-height:1.6; }
+  .meta b { color:var(--text); font-weight:500; }
+  table.cmp { width:100%; border-collapse:collapse; margin:14px 0 6px; font-size:12.5px; }
+  .cmp th, .cmp td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; line-height:1.45; }
+  .cmp th { color:var(--sub); font-weight:500; background:#15161b; }
+  section { margin-top:34px; padding-top:22px; border-top:1px solid var(--line); }
+  .timeline { margin:16px 0 20px; position:relative; height:46px; }
+  .bar { position:absolute; top:18px; left:0; right:0; height:10px; border-radius:5px; background:#22242c; overflow:hidden; display:flex; }
+  .seg { height:100%; border-right:1px solid var(--bg); }
+  .tick { position:absolute; top:0; font:500 11px "DM Mono",monospace; color:var(--sub); transform:translateX(-50%); white-space:nowrap; }
+  .tick.drop { color:var(--accent); }
+  .tick::after { content:""; position:absolute; left:50%; top:16px; width:1px; height:16px; background:currentColor; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
+  .grid.g8 { grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+  .frame { position:relative; aspect-ratio:9/16; overflow:hidden; background:#000; }
+  .frame > img { width:100%; height:100%; object-fit:cover; display:block; }
+  .chip { position:absolute; top:8px; left:8px; font:500 11px "DM Mono",monospace; background:rgba(0,0,0,.6); color:#fff; padding:3px 7px; border-radius:6px; z-index:4; }
+  .chip.drop { background:var(--accent); color:#111; }
+  .note { position:absolute; left:8px; right:8px; bottom:8px; font-size:11px; color:#fff; background:rgba(0,0,0,.55); padding:6px 8px; border-radius:8px; line-height:1.35; z-index:4; }
+  .arrow { position:absolute; z-index:3; color:#fff; font-size:28px; text-shadow:0 2px 6px rgba(0,0,0,.6); }
+  .body { padding:10px 12px 12px; font-size:12.5px; line-height:1.5; }
+  .body h3 { margin:0 0 4px; font-size:13px; font-weight:600; }
+  .body .vo { color:var(--accent); font-style:italic; }
+  .body .cut { color:var(--sub); }
+  .tiles { position:absolute; inset:0; background:
+     linear-gradient(90deg, rgba(0,0,0,.18) 1px, transparent 1px) 0 0/48px 48px,
+     linear-gradient(0deg, rgba(0,0,0,.18) 1px, transparent 1px) 0 0/48px 48px,
+     radial-gradient(circle at 50% 10%, #f3dfb5 0%, #c9b28a 45%, #8c7a5c 100%); }
+  .phoneshoe { position:absolute; left:8%; width:84%; top:30%; transform:rotate(-8deg); filter:grayscale(.85) brightness(.85) contrast(.9); mix-blend-mode:multiply; }
+  .phoneshoe img { width:100%; height:auto; clip-path:inset(18% 6% 30% 10%); }
+  .promerbg { position:absolute; inset:0; background:radial-gradient(circle at 70% 20%, #f4f0ff 0%, var(--promer) 55%, #cfd1db 100%); }
+  .pbox { position:absolute; left:7%; right:7%; top:38%; background:#1c1d22; border-radius:16px; padding:10px; color:#fff; font-size:10px; line-height:1.35; box-shadow:0 10px 30px rgba(0,0,0,.25); z-index:2; }
+  .pbox .thumb { width:34px; height:34px; border-radius:7px; overflow:hidden; margin-bottom:6px; background:#333; }
+  .pbox .thumb img { width:100%; height:100%; object-fit:cover; filter:grayscale(.85); }
+  .pbox .row { display:flex; justify-content:space-between; align-items:center; margin-top:8px; color:#9a9db0; font-size:9px; }
+  .pbox .send { width:20px; height:20px; border-radius:50%; background:#fff; color:#111; display:grid; place-items:center; font-size:11px; }
+  .idea { background:#2a2b32; border-radius:6px; padding:4px 6px; margin-top:4px; font-size:9px; }
+  .falling { position:absolute; left:30%; width:40%; top:8%; transform:rotate(-12deg); border-radius:8px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.3); }
+  .falling img { width:100%; filter:grayscale(.85); display:block; }
+  .cursor { position:absolute; right:12%; top:56%; font-size:20px; z-index:3; }
+  .zoom > img { transform:scale(2.4); transform-origin:76% 32%; }
+  .logo-ph { position:absolute; left:58%; top:20%; font:600 9px Inter; background:#fff; color:#111; padding:2px 5px; border-radius:3px; z-index:3; }
+  .split { position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; }
+  .split > div { position:relative; overflow:hidden; }
+  .split .line { position:absolute; top:0; bottom:0; left:50%; width:2px; background:#fff; z-index:2; }
+  .lbl { position:absolute; top:34px; font:500 10px "DM Mono",monospace; color:#fff; background:rgba(0,0,0,.55); padding:2px 6px; border-radius:4px; z-index:3; }
+  .outro { position:absolute; inset:0; background:radial-gradient(circle at 50% 40%, #fff 0%, var(--promer) 60%, #c9cbd6 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; color:#2C2C34; text-align:center; padding:0 10px; }
+  .outro img { width:62%; height:auto; aspect-ratio:94/24; }
+  .outro .t1 { font-size:12px; font-weight:500; }
+  .outro .t2 { font-size:9px; color:#717582; }
+  /* minh hoa mat dat khac nhau */
+  .water > img { filter:hue-rotate(185deg) saturate(1.3) brightness(.95); }
+  .sand > img { filter:sepia(.7) hue-rotate(-10deg) saturate(1.4) brightness(1.15); }
+  .grid3 { position:absolute; inset:0; display:grid; grid-template-rows:1fr 1fr 1fr; gap:3px; background:#111; }
+  .grid3 > div { position:relative; overflow:hidden; }
+  .grid3 img { width:100%; height:100%; object-fit:cover; object-position:50% 45%; }
+  .grid3 .n { position:absolute; left:6px; top:6px; font:600 11px Inter; background:#fff; color:#111; width:18px; height:18px; border-radius:50%; display:grid; place-items:center; }
+  .bigq { position:absolute; left:0; right:0; top:22%; text-align:center; font:600 15px Inter; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.7); z-index:3; padding:0 12px; }
+  .rewind > img { filter:saturate(.5) contrast(1.2) blur(1.2px); transform:scale(1.15); }
+  .rewind::after { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 2px, transparent 2px 6px); z-index:2; }
+  .ratios { position:absolute; inset:0; background:#1a1b20; display:flex; align-items:center; justify-content:center; gap:5px; padding:0 6px; }
+  .ratios div { overflow:hidden; border-radius:4px; position:relative; }
+  .ratios img { width:100%; height:100%; object-fit:cover; }
+  .ratios span { position:absolute; bottom:3px; left:3px; font:500 8px "DM Mono",monospace; background:rgba(0,0,0,.6); color:#fff; padding:1px 4px; border-radius:3px; }
+  .who { position:absolute; left:50%; top:40px; transform:translateX(-50%); font:500 10px Inter; color:#fff; background:rgba(20,20,26,.72); border:1px solid rgba(255,255,255,.35); padding:3px 9px; border-radius:20px; z-index:5; white-space:nowrap; }
+  .warn { margin:20px 0 0; color:var(--sub); font-size:12.5px; line-height:1.6; }
+  .warn b { color:var(--text); }
+  .said{background:rgba(255,255,255,.06);border-left:3px solid #ff7a1a;padding:8px 12px;border-radius:6px;margin:8px 0 10px;font-size:14px;line-height:1.5}
+.flow6{margin:12px 0 14px}.flow6-h{font-weight:600;font-size:15px;margin-bottom:8px}.flow6-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.flow6 .st{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px;font-size:13px;line-height:1.4;min-width:0}.flow6 .st .n{font:500 11px "DM Mono",ui-monospace,monospace;opacity:.7;margin-bottom:4px}.flow6 .st.drop{border-color:#ff7a1a}.flow6 .st.drop .n{color:#ff7a1a;opacity:1}@media(max-width:640px){.flow6-g{grid-template-columns:repeat(2,minmax(0,1fr))}}.wait{position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,#4a3a30 0%,#1d1714 55%,#0e0b0a 100%)}.wait img{position:absolute;left:6%;width:88%;top:30%;transform:rotate(-14deg);filter:drop-shadow(0 14px 18px rgba(0,0,0,.6))}.wait.heel img{left:-30%;width:150%;top:22%;transform:rotate(-8deg)}.wait .tag-w{position:absolute;left:8%;right:8%;top:12%;border:1.5px dashed #ff9a3c;color:#ffb070;border-radius:8px;padding:5px 7px;font:600 10px Inter,sans-serif;text-align:center;background:rgba(0,0,0,.35)}.pui{position:absolute;inset:0;background:#fff;font-family:Inter,system-ui,sans-serif;color:#1f2128;display:flex;flex-direction:column}.pui .hd{display:flex;align-items:center;gap:6px;padding:32px 10px 8px;border-bottom:1px solid #ececf0}.pui .sel{background:#f0f0f2;border-radius:7px;padding:4px 8px;font-size:10.5px;font-weight:600;display:flex;gap:5px;align-items:center}.pui .ic{width:13px;height:11px;border:1.4px solid #1f2128;border-radius:3px;position:relative}.pui .ic:after{content:"";position:absolute;left:4px;top:2px;border-left:4px solid #1f2128;border-top:2.5px solid transparent;border-bottom:2.5px solid transparent}.pui .body{flex:none;padding:8px;display:flex;flex-direction:column;gap:6px;position:relative}.pui .up{border:1px solid #e4e4ea;border-radius:9px;height:96px;display:flex;align-items:center;justify-content:center;background:#fafafb;overflow:hidden}.pui .up img{height:88px;width:auto;max-width:90%;object-fit:contain;filter:none!important;border-radius:4px}.pui .up .empty{font-size:8.5px;color:#9a9db0;text-align:center}.pui .plus{text-align:center;color:#9a9db0;font-size:11px;line-height:1}.pui .scr{border:1px solid #e4e4ea;border-radius:9px;padding:7px;font-size:8.5px}.pui .scr .t{display:flex;align-items:center;justify-content:space-between;gap:4px;font-weight:600;font-size:8.5px}.pui .btn2{background:#f0f0f2;border-radius:5px;padding:3px 5px;font-weight:500;font-size:7.5px;white-space:nowrap}.pui .btn2.on{background:#dcdce2;box-shadow:inset 0 0 0 1px #c9c9d1}.pui .pop{position:absolute;left:6px;right:6px;top:118px;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(26,26,26,.18);padding:8px;font-size:8.5px;z-index:2}.pui .pop .h{font-weight:600;font-size:9px;display:flex;justify-content:space-between;margin-bottom:5px}.pui .pop .tx{background:#fafafb;border-radius:6px;padding:6px;line-height:1.4;color:#2c2c34;min-height:52px}.pui .pop .tx .caret{display:inline-block;width:1px;height:9px;background:#5b4bf0;vertical-align:-1px}.pui .pop .go{margin:6px 0 0 auto;width:max-content;background:#2b2b30;color:#fff;border-radius:6px;padding:4px 8px;font-size:8px;font-weight:600}.pui .ft{display:flex;justify-content:space-between;align-items:center;gap:5px;padding:7px 8px;border-top:1px solid #ececf0}.pui .cfg{border:1px solid #e4e4ea;border-radius:7px;padding:4px 6px;font-size:7.5px;white-space:nowrap}.pui .gen{background:#2b2b30;color:#fff;border-radius:7px;padding:5px 7px;font-size:7.5px;font-weight:600;white-space:nowrap}.pui .gen b{color:#ff5a3c}.pui .fly{position:absolute;left:33%;width:34%;top:15%;transform:rotate(-8deg);border-radius:8px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:3;background:#fff}.pui .fly img{width:100%;display:block;filter:none!important}.gal{margin:14px 0 6px}.gal h3{font-size:15px;margin:0 0 4px}.gal .sub{font-size:12.5px;opacity:.75;margin-bottom:10px}.gal .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.gal .set{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;min-width:0}.gal .set.on{border-color:#ff7a1a}.gal .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px}.gal .pair.one{grid-template-columns:1fr}.gal img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;display:block}.gal .lb{font-size:12px;margin-top:6px;line-height:1.4}.gal .lb b{color:#ffb070}@media(max-width:760px){.gal .row{grid-template-columns:repeat(2,minmax(0,1fr))}}.v3{border:2px solid #FF6A3D;border-radius:16px;padding:16px 18px;margin:16px 0 22px;background:rgba(255,106,61,.05)}.v3t{background:#FF6A3D!important;color:#fff}.v3why{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:14px;font-size:14px;margin:8px 0 14px}.v3why ul{margin:6px 0 0;padding-left:18px}.v3prod{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;opacity:.85}.v3prod img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px}.v3prod span{grid-column:1/3}.v3h{font-size:16px;margin:16px 0 8px}.v3grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.v3card{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;font-size:13.5px;line-height:1.45}.v3imgs{display:grid;grid-template-columns:1fr 1fr;gap:5px}.v3imgs img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;display:block}.v3num{position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700;display:grid;place-items:center}.v3card h4{margin:8px 0 4px;font-size:14.5px}.v3card p{margin:4px 0}.v3txt{color:#ffb070}.v3vo{opacity:.8;font-style:italic}.v3type{display:grid;grid-template-columns:repeat(3,120px) 1fr;gap:10px;align-items:center;font-size:14px}.v3type img{width:120px;aspect-ratio:9/16;object-fit:cover;border-radius:8px}.v3tl td,.v3tl th{font-size:13px}@media(max-width:820px){.v3why,.v3grid{grid-template-columns:1fr 1fr}.v3type{grid-template-columns:repeat(3,1fr)}.v3type p{grid-column:1/4}}</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Shorts 02 · Giày · 3 storyboard để so</h1>
+  <div class="said"><b>Video nói gì:</b> Trang shop giày trên Shopify toàn ảnh tĩnh; chọn một đôi, đưa vào Promer AI, đôi đó thành quảng cáo tiếp đất làm đất đen nổ tung, đúng lúc nhạc drop. <b>Mỗi phương án dùng một đôi giày từ đầu tới cuối.</b> Có 3 phương án để chọn: <b>A</b> một cú tiếp đất, <b>B</b> ba mặt đất, <b>C</b> lật ngược (cho xem quảng cáo trước rồi mới lộ ảnh gốc).</div>
+  <section class="v3" id="ban3">
+  <h2><span class="tag v3t">BẢN 3</span>Đề xuất · 46,6 giây · chờ anh duyệt <span class="meta">· giày mới + 4 ý tưởng kiểu quảng cáo giày thật · ảnh dưới đây là MẪU THAM KHẢO từ Pinterest, chỉ để thấy hướng, không dùng trong video</span></h2>
+  <div class="v3why">
+    <div><b>Vì sao bản 2 "phèn"</b><ul><li>Giày len xám, màu đục, dáng hiền</li><li>Ảnh đường phố tối, kiểu ảnh stock</li><li>Không có chữ, không có ý tưởng</li></ul></div>
+    <div><b>Bản 3 đổi gì</b><ul><li>Giày chạy bộ lưới trắng, đế dày, điểm nhấn <span style="color:#FF6A3D">cam san hô</span>, chữ PROMER ở gót</li><li>Mỗi ý tưởng một kiểu chụp + một màu nền riêng</li><li>Chữ to 2–4 từ dựng trong AE (font Promer)</li><li>Vẫn một đôi giày từ trang shop tới cảnh cuối</li></ul></div>
+    <div class="v3prod"><img src="img/ref/ref_47.jpg" alt=""><img src="img/ref/ref_59.jpg" alt=""><span>Hướng sản phẩm (mẫu)</span></div>
+  </div>
+
+  <h3 class="v3h">4 ý tưởng quảng cáo (cùng một đôi giày)</h3>
+  <div class="v3grid">
+    <div class="v3card"><div class="v3imgs"><img src="img/ref/ref_36.jpg" alt=""><img src="img/ref/ref_39.jpg" alt=""></div><div class="v3num" style="background:#FF6A3D">1</div>
+      <h4>Giày bay · nền cam san hô</h4><p>Một đôi lơ lửng, một chiếc nghiêng như đang rơi, nền một màu, bóng mềm. Rơi đúng <b>drop</b>.</p>
+      <p class="v3txt">Chữ trên hình: <b>"BOUNCE IN EVERY STEP."</b></p><p class="v3vo">Emma: "And now… it moves."</p></div>
+    <div class="v3card"><div class="v3imgs"><img src="img/ref/ref_55.jpg" alt=""><img src="img/ref/ref_52.jpg" alt=""></div><div class="v3num" style="background:#2F7DE1">2</div>
+      <h4>Góc máy thấp · trời xanh</h4><p>Nhìn từ dưới lên, bàn chân mang giày bước qua khung, nắng gắt, màu no.</p>
+      <p class="v3txt">Chữ: <b>"OWN EVERY STREET."</b></p><p class="v3vo">Emma: "Same shoe. A new idea for every ad."</p></div>
+    <div class="v3card"><div class="v3imgs"><img src="img/ref/ref_50.jpg" alt=""><img src="img/ref/ref_48.jpg" alt=""></div><div class="v3num" style="background:#1B2034">3</div>
+      <h4>Nhoè tốc độ · nền tối</h4><p>Giày lướt ngang, vệt nhoè trắng cam phía sau, giọt nước bắn, giày sắc nét. Khớp tiếng trống.</p>
+      <p class="v3txt">Chữ: <b>"RUN LIGHT. MOVE FAST."</b></p><p class="v3vo">Emma: "Want more energy?"</p></div>
+    <div class="v3card"><div class="v3imgs"><img src="img/ref/ref_37.jpg" alt=""><img src="img/ref/ref_44.jpg" alt=""></div><div class="v3num" style="background:#C8102E">4</div>
+      <h4>Studio đỏ · sàn phản chiếu</h4><p>Một chiếc đặt trên sàn đỏ bóng, đèn rọi từ trên tạo vòng sáng. Cảnh "sang" trước lưới so sánh.</p>
+      <p class="v3txt">Chữ: <b>"BUILT TO BE SEEN."</b></p><p class="v3vo">Emma: "Or make it premium."</p></div>
+  </div>
+
+  <h3 class="v3h">Chữ to dựng trong AE (mẫu bố cục)</h3>
+  <div class="v3type"><img src="img/ref/ref_51.jpg" alt=""><img src="img/ref/ref_02.jpg" alt=""><img src="img/ref/ref_61.jpg" alt="">
+    <p>Chữ 2–4 từ, rất to, chiếm nửa khung, giày đè lên chữ. Font Inter đậm của Promer, chữ trắng hoặc tối theo nền. Không để AI viết chữ vào ảnh (AI hay sai chính tả).</p></div>
+
+  <h3 class="v3h">Dòng thời gian bản 3 (giữ khung bản 2, thay hình)</h3>
+  <div style="overflow-x:auto"><table class="cmp v3tl">
+    <tr><th>Giây</th><th>Cảnh</th><th>Hình</th><th>Emma đọc</th><th>Tiếng hiệu ứng</th></tr>
+    <tr><td>0–1,6</td><td>Mở đầu</td><td>Thẻ ảnh giày trắng giữa khung, 4 thẻ quảng cáo xoè ra sau · "1 product photo → 4 ad ideas"</td><td></td><td>màn trập mềm</td></tr>
+    <tr><td>1,6–4,1</td><td>Trang shop</td><td>Trang shop toàn ảnh tĩnh (bản thật: shop nhãn Promer), chạm chọn đôi giày trắng</td><td>"Shopify sellers, this is how most shoe ads look."</td><td>chạm UI</td></tr>
+    <tr><td>4,1–8,55</td><td>Promer AI · Ad Animation</td><td>Giày bay vào ô tải ảnh, gõ ý tưởng, bấm Generate, lao vào giày</td><td>"One photo. One idea in Promer AI."</td><td>whoosh · tiếng dồn lên</td></tr>
+    <tr><td>8,55–11,75</td><td><b>Drop</b> · Ý tưởng 1</td><td>Giày bay nền cam san hô + chữ "BOUNCE IN EVERY STEP."</td><td>"And now… it moves."</td><td>tiếng nện trầm</td></tr>
+    <tr><td>11,75–15,3</td><td>Trước / sau</td><td>Thẻ trên: ảnh sản phẩm nền trắng · thẻ dưới: ý tưởng 1</td><td>"From a still photo, to an ad that stops the scroll."</td><td>sột soạt</td></tr>
+    <tr><td>15,3–18,5</td><td>Ý tưởng 2</td><td>Góc thấp trời xanh + "OWN EVERY STREET."</td><td>"Same shoe. A new idea for every ad."</td><td></td></tr>
+    <tr><td>18,5–21,7</td><td>Ý tưởng 3</td><td>Nhoè tốc độ + "RUN LIGHT. MOVE FAST."</td><td>"Want more energy?"</td><td>tiếng nện bị nén</td></tr>
+    <tr><td>21,7–25,3</td><td>Ý tưởng 4</td><td>Studio đỏ, vòng đèn + "BUILT TO BE SEEN."</td><td>"Or make it premium."</td><td></td></tr>
+    <tr><td>25,3–28,8</td><td>Lưới 4 ý tưởng</td><td>4 thẻ hiện theo nhịp, mỗi thẻ một màu nền</td><td>"One photo. Four ads. Which one would you test?"</td><td></td></tr>
+    <tr><td>28,8–32,0</td><td>Trang sản phẩm</td><td>Khung điện thoại, ảnh chính chạy ý tưởng 1, chạm "Add to cart"</td><td>"Then put it right back on your store."</td><td>chuông xác nhận</td></tr>
+    <tr><td>32,0–35,7</td><td>Montage</td><td>4 ý tưởng cắt nhanh theo trống</td><td>"No studio. No photoshoot. Just your product photo."</td><td></td></tr>
+    <tr><td>35,7–41,1</td><td>How it works</td><td>3 bước</td><td>"Pick a product photo. Write one idea. Get your video ad."</td><td>giấy lật</td></tr>
+    <tr><td>41,1–46,6</td><td>Outro</td><td>Logo Promer · "Try Ad Animation → promer.ai"</td><td>"Make yours with Promer AI. Try Ad Animation at promer dot ai."</td><td>lấp lánh dâng</td></tr>
+  </table></div>
+  <p class="warn">Cần trước khi dựng: Gemini tạo 6 ảnh theo <code>BRIEF_ANH_v3_GiayMoi_cho_Gemini.md</code> (1 ảnh sản phẩm nền trắng, 4 ảnh ý tưởng, 1 cận gót). Hai câu Emma mới cho ý tưởng 3, 4 ("Want more energy?", "Or make it premium.").</p>
+</section>
+
+  <div class="meta">Cùng một đôi giày nhãn Promer, cùng nhạc <b>04_Affogato_Ganja</b> (nhạc lặng 6,0–6,9 giây, <b>drop 6,95 giây</b>, nhịp mạnh 9,27 · 10,32 · 12,65, đo 28/10), khoảng 15 giây, giọng Emma. Khác nhau ở <b>góc (angle)</b> và <b>ý tưởng</b>.</div>
+  <div class="flow6"><div class="flow6-h">Mỗi video đi qua 6 cảnh</div><div class="flow6-g">
+<div class="st"><div class="n">1 · 0–3 giây</div>Ảnh thường chụp bằng điện thoại, câu mở gọi tên chủ shop Shopify</div>
+<div class="st"><div class="n">2 · 3–7 giây</div>Ảnh thả vào Promer AI, viết một ý tưởng</div>
+<div class="st drop"><div class="n">3 · drop nhạc</div>Khoảnh khắc lớn: video quảng cáo do Promer AI tạo</div>
+<div class="st"><div class="n">4</div>Khung cận sản phẩm, thấy rõ nhãn</div>
+<div class="st"><div class="n">5</div>Trước / sau, hoặc thẻ ý tưởng</div>
+<div class="st"><div class="n">6</div>Logo Promer, ghi rõ "AI-generated"</div>
+</div></div>
+  <div style="overflow-x:auto"><table class="cmp">
+    <tr><th></th><th>A · Một cú tiếp đất</th><th>B · Một đôi giày, ba mặt đất</th><th>C · Lật ngược</th></tr>
+    <tr><th>Angle</th><td>Ảnh điện thoại là đủ</td><td>Một sản phẩm, nhiều quảng cáo để test</td><td>Quảng cáo AI làm đúng thì không ai đoán ra</td></tr>
+    <tr><th>Câu mở gọi đúng tệp (0–3 giây)</th><td><b>"Shopify sellers, this is how most shoe ads look."</b> (9 chữ, khoảng 2,8 giây)</td><td><b>"Shopify sellers: one shoe, one phone photo."</b> (7 chữ, khoảng 2,8 giây)</td><td><b>"Shopify sellers: studio shoot? Big budget?"</b> (6 chữ, khoảng 2,6 giây)</td></tr>
+    <tr><th>2 giây đầu</th><td>Ảnh giày trên sàn gạch (cái "trước")</td><td>Ảnh giày trên sàn gạch + chữ "1 photo"</td><td>Quảng cáo đã xong, giày nổ đất (cái "sau")</td></tr>
+    <tr><th>Đỉnh ở drop</th><td>Giày tiếp đất, quay chậm</td><td>Tiếp đất 3 lần, 3 mặt đất, cắt theo nhịp</td><td>Phát lại cú tiếp đất ở góc máy thấp</td></tr>
+    <tr><th>Kết</th><td>Trước / sau chia đôi</td><td>Lưới 3 ad: "Which one would you test?" (mời bình luận)</td><td>3 khung hình 9:16 · 1:1 · 4:5 cho Meta</td></tr>
+    <tr><th>Credit Promer</th><td>8 + 48 = <b>56</b></td><td>8 + 48 + 2 ảnh 16 = <b>72</b> (3 video thật: 152)</td><td>8 + 48 = <b>56</b></td></tr>
+    <tr><th>Mạnh / yếu</th><td>Rõ, dễ hiểu nhất · mở bằng ảnh xấu nên 2 giây đầu yếu</td><td>Nói đúng nhu cầu test nhiều ad · 2 mặt đất sau là ảnh tĩnh, dễ lộ khác chất</td><td>2 giây đầu mạnh nhất (research: mở bằng thành phẩm) · phải giữ được câu hỏi tới lúc lật</td></tr>
+  </table></div>
+
+  <!-- ================= A ================= -->
+  <section>
+    <h2><span class="tag">A</span>Một cú tiếp đất <span class="meta">· pillar P1 · khuôn trước/sau · angle "Ảnh điện thoại là đủ" · bản đã đưa anh</span></h2>
+    <div class="timeline">
+      <div class="bar"><div class="seg" style="width:16.7%;background:#b79b6c"></div><div class="seg" style="width:7.3%;background:#cfd1db"></div><div class="seg" style="width:22.3%;background:#9fa2b3"></div><div class="seg" style="width:15.5%;background:#ff7a1a"></div><div class="seg" style="width:7%;background:#c45410"></div><div class="seg" style="width:15.5%;background:#7a5a3a"></div><div class="seg" style="width:15.7%;background:#E2E3E9"></div></div>
+      <span class="tick" style="left:0%">0</span><span class="tick" style="left:16.7%">2,51</span><span class="tick" style="left:24%">3,56</span><span class="tick drop" style="left:46.3%">DROP 6,95</span><span class="tick" style="left:61.8%">9,27</span><span class="tick" style="left:68.8%">10,32</span><span class="tick" style="left:84.3%">12,65</span><span class="tick" style="left:99%">15,0</span>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="frame"><img src="img/F1_shopify_listing_giay.jpg" alt="Trang danh sách sản phẩm của một shop giày trên Shopify"><span class="chip">F1 · 0,0–2,5</span><span class="who">For Shopify sellers</span><span class="arrow" style="left:1.5%;top:21%;width:24.5%;height:20%;border:2px solid #ff7a1a;border-radius:8px;font-size:0"></span><span class="arrow" style="left:16%;top:34%">👆</span><div class="note">Shop giày thật trên Shopify (Allbirds, 38 sản phẩm): toàn ảnh tĩnh. Bản thật dựng shop nhãn Promer.</div></div>
+        <div class="body"><h3>Trước: trang shop toàn ảnh tĩnh</h3>Trang danh sách sản phẩm cuộn chậm lên: ảnh nào cũng đứng yên. Ở 2,0 giây ngón tay chạm một đôi giày, ảnh đó nhấc ra khỏi lưới và bay sang F2.<br><span class="vo">"Shopify sellers, this is how most shoe ads look."</span> (lời vắt qua nhát cắt 2,51, hết khoảng 2,8)<br><span class="cut">Cắt cứng ở 2,51</span></div></div>
+      <div class="card"><div class="frame"><div class="pui"><div class="hd"><div class="sel"><span class="ic"></span>Ad Animation ▾</div></div><div class="body"><div class="up"><div class="empty">Select your static creative<br>or upload image</div></div><div class="plus">+</div><div class="scr"><div class="t"><span>Choose animation scripts</span></div></div></div><div class="ft"><span class="cfg">9:16 · 8s · 720 HD · 🔇</span><span class="gen">Generate 1 video <b>✦</b> 48</span></div><div class="fly"><img src="img/F2_pick_giay_listing.jpg" alt="Đôi giày chọn ở F1"></div></div><span class="arrow" style="left:46%;top:24%;z-index:4;color:#1f2128">↓</span><span class="chip">F2 · 2,5–3,6</span><div class="note">Đúng đôi giày vừa chạm trong trang shop rơi vào ô tải ảnh của <b>Promer AI · Ad Animation</b> (UI thật của app, dựng lại trong AE).</div></div>
+        <div class="body"><h3>Thả ảnh vào Promer AI</h3>Thả vào ô, vượt nhẹ rồi về chỗ.<br><span class="vo">"Same shoe. One idea in Promer AI..."</span></div></div>
+      <div class="card"><div class="frame"><div class="pui"><div class="hd"><div class="sel"><span class="ic"></span>Ad Animation ▾</div></div><div class="body"><div class="up"><img src="img/F2_pick_giay_listing.jpg" alt="Đôi giày chọn ở F1"></div><div class="plus">+</div><div class="scr"><div class="t"><span>Choose animation scripts</span><span><span class="btn2 on">Add my idea</span> <span class="btn2">Generate script</span></span></div></div><div class="pop"><div class="h"><span>Describe your animation idea</span><span>×</span></div><div class="tx">Runner's foot in this grey wool sneaker steps into a puddle on a city crosswalk at golden hour, water splashes up around the sole, slow motion at impact, low camera. Keep the shoe exactly.<span class="caret"></span></div><div class="go">Generate ad script</div></div></div><div class="ft"><span class="cfg">9:16 · 8s · 720 HD · 🔇</span><span class="gen">Generate 1 video <b>✦</b> 48</span></div></div><span class="cursor" style="right:20%;top:44%">➚</span><span class="chip">F3 · 3,6–6,95</span><div class="note">Bấm <b>Add my idea</b>, chữ hiện dần. Bấm Generate ở 6,6.</div></div>
+        <div class="body"><h3>Viết ý tưởng</h3>Máy lùi rất chậm.<br><span class="vo">"...now it hits the ground."</span> (kết trước 6,95)<br><span class="cut">Velocity ramp lao vào tâm giày</span></div></div>
+      <div class="card"><div class="frame"><img src="img/F4_real2_city_crosswalk_Gemini.jpg" alt="Chân người mang giày xám bước qua vũng nước, nước bắn"><span class="chip drop">F4 · DROP 6,95–9,27</span><span class="arrow" style="left:46%;top:6%">⇓</span><div class="note"><b>Đúng đôi giày chọn ở F1–F2</b> bước qua vũng nước trên vạch qua đường lúc hoàng hôn, nước bắn đúng drop. Quay chậm 7,3–8,2. Ảnh: Gemini.</div></div>
+        <div class="body"><h3>Sau: cú tiếp đất</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,27</span></div></div>
+      <div class="card"><div class="frame"><img src="img/F5_real1_autumn_heel_Gemini.jpg" alt="Cận gót giày xám có chữ Promer, phố mùa thu"><span class="chip">F5 · 9,27–10,32</span><div class="note">Cận gót: chữ PROMER dập nổi trên đế, lá thu trên vỉa hè, nắng hoàng hôn. Ảnh đã là khung cận, không phóng thêm.</div></div>
+        <div class="body"><h3>Cận nhãn</h3>Ảnh tĩnh khung cận.<br><span class="cut">Cắt cứng ở 10,32</span></div></div>
+      <div class="card"><div class="frame"><div class="split"><div><img src="img/F1_shopify_listing_giay.jpg" alt="" style="width:200%;height:100%;object-fit:cover;display:block"><span class="lbl" style="left:6px">BEFORE</span></div><div><img src="img/F4_real1_autumn_stride_Gemini.jpg" alt="" style="width:200%;height:100%;object-fit:cover;margin-left:-50%;display:block"><span class="lbl" style="right:6px">AFTER</span></div><span class="line"></span></div><span class="arrow" style="left:44%;top:46%;z-index:4">→</span><span class="chip">F6 · 10,32–12,65</span><div class="note">Trước / sau: đường chia quét từ trái sang phải.</div></div>
+        <div class="body"><h3>Trước / sau</h3>Đúng khuôn Short "trước / sau".<br><span class="cut">Mờ sang outro ở 12,65</span></div></div>
+      <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F7 · 12,65–15,0</span></div>
+        <div class="body"><h3>Outro</h3>Logo vào theo luật logo, không đổi hình logo.</div></div>
+    </div>
+    <div class="gal"><h3>Ảnh F4 · F5 Gemini đã tạo · anh chốt 28/10: bộ 2 + bộ 3</h3><div class="sub">Cả 4 bộ cùng một đôi giày xám chọn ở F1–F2. Chọn bộ nào thì F4, F5, F6 (nửa sau) dùng bộ đó.</div><div class="row"><div class="set"><div class="pair"><img src="img/F4_tiepdat_Gemini.jpg" alt=""><img src="img/F5_can_got_Gemini.jpg" alt=""></div><div class="lb"><b>1 · Đất nổ, than hồng</b><br>Đúng ý tưởng "Hit the ground": cú tiếp đất có lực, khớp drop. Gót có chữ PROMER.</div></div><div class="set on"><div class="pair"><img src="img/F4_real1_autumn_stride_Gemini.jpg" alt=""><img src="img/F5_real1_autumn_heel_Gemini.jpg" alt=""></div><div class="lb"><b>2 · Phố mùa thu, hoàng hôn (ĐÃ CHỐT: F5 + nửa sau F6)</b><br>Đời thường, thật như ảnh lifestyle. Đủ cặp F4 + F5, gót có chữ PROMER. Ít lực hơn cho cú drop.</div></div><div class="set on"><div class="pair one"><img src="img/F4_real2_city_crosswalk_Gemini.jpg" alt=""></div><div class="lb"><b>3 · Bước qua vũng nước (ĐÃ CHỐT: F4 drop)</b><br>Có nước bắn đúng lúc chạm, hợp drop. Chưa có ảnh F5 cùng bối cảnh.</div></div><div class="set"><div class="pair one"><img src="img/F4_real3_cloud_cushion_Gemini.jpg" alt=""></div><div class="lb"><b>4 · Bậc đá, khói bụi</b><br>Sáng, sạch, khói bụi gợi độ êm. Chưa có F5.</div></div></div></div>
+    <p class="warn">Hiệu ứng A: đẩy máy · thả có vượt · velocity ramp · quay chậm · phóng cận · quét chia đôi · logo.</p>
+  </section>
+
+  <!-- ================= B ================= -->
+  <section>
+    <h2><span class="tag b">B</span>Một đôi giày, ba mặt đất <span class="meta">· pillar P1 · angle "Một sản phẩm, nhiều quảng cáo để test" · tiêu đề: How to Make 3 Shoe Ads From One Photo With AI</span></h2>
+    <div class="meta">Ý: chủ shop không cần một quảng cáo đẹp, họ cần <b>vài bản để test</b> ("creative testing" 452K view, "ad creative fatigue" 51K [Research]). Cùng ảnh, 3 ý tưởng, giày tiếp đất 3 lần trên 3 mặt đất, mỗi lần đúng một nhịp mạnh. Kết bằng câu hỏi để người xem bình luận chọn.</div>
+    <div class="timeline">
+      <div class="bar"><div class="seg" style="width:16.7%;background:#b79b6c"></div><div class="seg" style="width:29.6%;background:#9fa2b3"></div><div class="seg" style="width:15.5%;background:#ff7a1a"></div><div class="seg" style="width:7%;background:#2f7fd6"></div><div class="seg" style="width:15.5%;background:#e0b56a"></div><div class="seg" style="width:9%;background:#5aa9ff"></div><div class="seg" style="width:6.7%;background:#E2E3E9"></div></div>
+      <span class="tick" style="left:0%">0</span><span class="tick" style="left:16.7%">2,51</span><span class="tick drop" style="left:46.3%">DROP 6,95</span><span class="tick" style="left:61.8%">9,27</span><span class="tick" style="left:68.8%">10,32</span><span class="tick" style="left:84.3%">12,65</span><span class="tick" style="left:99%">15,0</span>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="frame"><div class="tiles"></div><div class="phoneshoe"><img src="img/T02_shoes_16.jpg" alt=""></div><div class="bigq" style="top:16%;color:#2C2C34;text-shadow:none">1 photo</div><span class="chip">F1 · 0,0–2,5</span><span class="who">For Shopify sellers</span><div class="note">Ảnh điện thoại trên sàn gạch, chữ nhỏ "1 photo".</div></div>
+        <div class="body"><h3>Một tấm ảnh</h3>Máy đứng yên, chữ hiện theo nhịp 0,17 và 1,87.<br><span class="vo">"Shopify sellers: one shoe, one phone photo."</span><br><span class="cut">Cắt cứng ở 2,51</span></div></div>
+      <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox" style="top:24%"><div class="thumb"><img src="img/T02_shoes_16.jpg" alt=""></div>Add my idea ×3<div class="idea">1 · slams onto black soil, embers</div><div class="idea">2 · splashes onto a dark wet street</div><div class="idea">3 · lands on desert sand at sunrise</div><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor" style="top:66%">➚</span><span class="chip">F2 · 2,5–6,95</span><div class="note">3 thẻ ý tưởng bật ra lần lượt ở 2,51 · 3,56 · 5,89. Bấm Generate ở 6,6.</div></div>
+        <div class="body"><h3>Ba ý tưởng</h3>Thẻ bật ra có vượt nhẹ.<br><span class="vo">"Three ideas in Promer AI..."</span> · <span class="vo">"...three ads to test."</span><br><span class="cut">Velocity ramp lao vào giày</span></div></div>
+      <div class="card"><div class="frame"><img src="img/T02_shoes_16.jpg" alt=""><span class="lbl" style="left:8px;top:34px">AD 1</span><span class="chip drop">F3 · DROP 6,95–9,27</span><div class="note">Video Promer: tiếp đất trên đất đen, quay chậm lúc chạm.</div></div>
+        <div class="body"><h3>Ad 1 · đất đen</h3>Cú lớn nhất, đúng drop.<br><span class="cut">Match cut: giày giữ nguyên chỗ trên màn khi đổi mặt đất</span></div></div>
+      <div class="card"><div class="frame water"><img src="img/T02_shoes_16.jpg" alt=""><span class="lbl" style="left:8px;top:34px">AD 2</span><span class="chip">F4 · 9,27–10,32</span><div class="note">Minh hoạ màu: phố tối ướt, nước bắn. Ảnh AI Photoshoot + chuyển động nhẹ trong AE.</div></div>
+        <div class="body"><h3>Ad 2 · nước</h3>Một nhịp, nước bắn.<br><span class="cut">Match cut ở 10,32</span></div></div>
+      <div class="card"><div class="frame sand"><img src="img/T02_shoes_16.jpg" alt=""><span class="lbl" style="left:8px;top:34px">AD 3</span><span class="chip">F5 · 10,32–12,65</span><div class="note">Minh hoạ màu: cát sa mạc lúc bình minh, cát tung lên.</div></div>
+        <div class="body"><h3>Ad 3 · cát</h3>Máy trôi ngang chậm.<br><span class="cut">Thu nhỏ vào lưới ở 12,65</span></div></div>
+      <div class="card"><div class="frame"><div class="grid3"><div><img src="img/T02_shoes_16.jpg" alt=""><span class="n">1</span></div><div class="water"><img src="img/T02_shoes_16.jpg" alt="" style="filter:hue-rotate(185deg) saturate(1.3)"><span class="n">2</span></div><div class="sand"><img src="img/T02_shoes_16.jpg" alt="" style="filter:sepia(.7) saturate(1.4) brightness(1.15)"><span class="n">3</span></div></div><div class="bigq" style="top:44%">Which one would you test?</div><span class="chip">F6 · 12,65–14,0</span><div class="note">3 ad thu vào lưới, câu hỏi giữa màn.</div></div>
+        <div class="body"><h3>Lưới 3 ad</h3>Mời bình luận 1, 2 hay 3.<br><span class="vo">"Which one would you test?"</span></div></div>
+      <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">3 ads, 1 photo · Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F7 · 14,0–15,0</span></div>
+        <div class="body"><h3>Outro</h3>Bình luận ghim: "Comment 1, 2 or 3".</div></div>
+    </div>
+    <p class="warn">Hiệu ứng B: chữ theo nhịp · thẻ bật có vượt · velocity ramp · match cut đổi mặt đất · nước bắn · máy trôi ngang · thu vào lưới. <b>Cần quyết:</b> Ad 2 và 3 là ảnh tĩnh (72 credit) hay video thật (152 credit). Ảnh tĩnh đặt cạnh video dễ lộ khác chất.</p>
+  </section>
+
+  <!-- ================= C ================= -->
+  <section>
+    <h2><span class="tag c">C</span>Lật ngược <span class="meta">· pillar P4 + P1 · angle "Quảng cáo AI làm đúng thì không ai đoán ra" · tiêu đề: This Shoe Ad Was Made From a Phone Photo (AI)</span></h2>
+    <div class="meta">Ý: mở bằng <b>quảng cáo đã xong</b> (cách mở của các video đang lên: "AI ad vs big brand ad: can you tell?" [Đo, PDF 4.5]), hỏi người xem "chụp studio à?", rồi <b>tua ngược</b> về tấm ảnh điện thoại. Drop là lúc phát lại cú tiếp đất. Kết bằng 3 khung hình cho Meta, đúng thứ chủ shop cần dùng.</div>
+    <div class="timeline" id="tlC">
+      <div class="bar"><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:7%;background:#8a8f9e"></div><div class="seg" style="width:9.7%;background:#b79b6c"></div><div class="seg" style="width:12.9%;background:#9fa2b3"></div><div class="seg" style="width:15.5%;background:#c45410"></div><div class="seg" style="width:7%;background:#7a5a3a"></div><div class="seg" style="width:15.5%;background:#c38bff"></div><div class="seg" style="width:15.7%;background:#E2E3E9"></div></div>
+      <span class="tick" style="left:0%">0</span><span class="tick" style="left:16.7%">2,51</span><span class="tick" style="left:23.7%">3,56</span><span class="tick" style="left:33.4%">5,0</span><span class="tick drop" style="left:46.3%">DROP 6,95</span><span class="tick" style="left:61.8%">9,27</span><span class="tick" style="left:68.8%">10,32</span><span class="tick" style="left:84.3%">12,65</span><span class="tick" style="left:99%">15,0</span>
+    </div>
+    <div class="grid g8">
+      <div class="card"><div class="frame"><img src="img/T02_shoes_16.jpg" alt=""><div class="bigq" style="top:16%;font-size:13px">Studio shoot?</div><span class="chip drop">F1 · 0,0–2,5</span><span class="who">For Shopify sellers</span><div class="note">Mở thẳng bằng quảng cáo xong: giày nổ đất. Chữ nhỏ "Studio shoot?" hiện ở nhịp 1,87.</div></div>
+        <div class="body"><h3>Quảng cáo xong (cái "sau")</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify sellers: studio shoot? Big budget?"</span></div></div>
+      <div class="card"><div class="frame rewind"><img src="img/T02_shoes_16.jpg" alt=""><span class="arrow" style="left:40%;top:40%;font-size:40px">⏪</span><span class="chip">F2 · 2,5–3,6</span><div class="note">Tua ngược: đất bay ngược về, giày bay lên. Tốc độ tăng dần.</div></div>
+        <div class="body"><h3>Tua ngược</h3>Chạy ngược video Promer, nhanh dần.<br><span class="vo">"Nope."</span></div></div>
+      <div class="card"><div class="frame"><div class="tiles"></div><div class="phoneshoe"><img src="img/T02_shoes_16.jpg" alt=""></div><span class="chip">F3 · 3,6–5,0</span><div class="note">Dừng phắt ở tấm ảnh điện thoại trên sàn gạch, khung chụp điện thoại hiện quanh ảnh.</div></div>
+        <div class="body"><h3>Lộ ra: ảnh điện thoại</h3>Khựng lại, khung chụp hiện ra.<br><span class="vo">"One phone photo..."</span></div></div>
+      <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox" style="top:34%"><div class="thumb"><img src="img/T02_shoes_16.jpg" alt=""></div>Add my idea: <b>shoe slams onto black soil at dusk…</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F4 · 5,0–6,95</span><div class="note">Ảnh vào thanh prompt, ý tưởng hiện nhanh; nhạc lặng thì máy đứng.</div></div>
+        <div class="body"><h3>Một ý tưởng</h3><span class="vo">"...and one idea in Promer AI."</span><br><span class="cut">Velocity ramp vào giày</span></div></div>
+      <div class="card"><div class="frame" style="transform:none"><img src="img/T02_shoes_16.jpg" alt="" style="transform:scale(1.25) translateY(6%);transform-origin:50% 80%"><span class="chip drop">F5 · DROP 6,95–9,27</span><span class="arrow" style="left:8%;bottom:30%">⤴</span><div class="note">Phát lại cú tiếp đất ở góc máy THẤP sát đất (khác góc F1), quay chậm lúc chạm.</div></div>
+        <div class="body"><h3>Phát lại, góc thấp</h3>Cùng khoảnh khắc, góc khác.<br><span class="cut">Cắt cứng ở 9,27</span></div></div>
+      <div class="card"><div class="frame zoom"><img src="img/T02_shoes_16.jpg" alt=""><span class="logo-ph">PROMER</span><span class="chip">F6 · 9,27–10,32</span><div class="note">Cận nhãn Promer ở gót.</div></div>
+        <div class="body"><h3>Cận nhãn</h3><span class="cut">Cắt cứng ở 10,32</span></div></div>
+      <div class="card"><div class="frame"><div class="ratios"><div style="width:30%;aspect-ratio:9/16"><img src="img/T02_shoes_16.jpg" alt=""><span>9:16</span></div><div style="width:34%;aspect-ratio:1/1"><img src="img/T02_shoes_16.jpg" alt=""><span>1:1</span></div><div style="width:30%;aspect-ratio:4/5"><img src="img/T02_shoes_16.jpg" alt=""><span>4:5</span></div></div><div class="bigq" style="top:16%;font-size:12px">Ready for Meta</div><span class="chip">F7 · 10,32–12,65</span><div class="note">Khung quảng cáo tách ra 3 cỡ, mỗi cỡ bật ra một nhịp.</div></div>
+        <div class="body"><h3>3 khung cho Meta</h3>Tách khung, bật theo nhịp.<br><span class="vo">"Every size you need."</span></div></div>
+      <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">From a phone photo · Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F8 · 12,65–15,0</span></div>
+        <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+    </div>
+    <p class="warn">Hiệu ứng C: đẩy máy · tua ngược · khựng + khung chụp · velocity ramp · đổi góc máy thấp · phóng cận · tách 3 khung. <b>Rủi ro:</b> F1 và F5 cùng một video Promer; muốn F5 thật sự khác góc thì phải tạo thêm 1 video góc thấp (thêm 48 credit), không thì F5 dùng đoạn khác của cùng video (đoạn chạm đất) và phóng lại khung.</p>
+  </section>
+
+  <p class="warn"><b>Đây là bản để hình dung, không phải hình cuối.</b> Mọi khung dùng ảnh template T02 (có logo Nike) để thấy màu và bố cục; bản thật là giày nhãn Promer tạo trong Promer AI. Màu nước (B-F4) và cát (B-F5) là ảnh template đổi màu, chỉ để hình dung không khí.</p>
+</div>
+</body>
+</html>

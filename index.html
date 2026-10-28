@@ -1,0 +1,283 @@
+<title>Promer 7 Shorts</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: mot cot doc de doc tu tren xuong, danh sach 7 the Short, moi the co anh template va nut mo storyboard */
+  :root {
+    --bg: #f1f1f5; --surface: #ffffff; --line: #dee1f3; --fg: #2c2c34; --sub: #717582;
+    --accent: #1b2034; --hot: #e2591a; --chip: #f0f0f2;
+    --display: "Inter", "Segoe UI", system-ui, sans-serif; --mono: "DM Mono", ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #111218; --surface: #1a1b22; --line: #2c2e3a; --fg: #e9eaf0; --sub: #9a9db0;
+    --accent: #e9eaf0; --hot: #ff8a3d; --chip: #23242d; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #111218; --surface: #1a1b22; --line: #2c2e3a; --fg: #e9eaf0; --sub: #9a9db0;
+    --accent: #e9eaf0; --hot: #ff8a3d; --chip: #23242d; color-scheme: dark }
+  body { background: var(--bg); color: var(--fg); font-family: var(--display); font-size: 15px; line-height: 1.55;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 56px; }
+  .wrap { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .eyebrow { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--sub); }
+  h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; margin: 6px 0 10px; font-weight: 700; text-wrap: balance; }
+  h2 { font-size: 19px; margin: 0 0 10px; font-weight: 600; text-wrap: balance; }
+  p { margin: 0; max-width: 68ch; }
+  .lede { color: var(--sub); }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .fact { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; }
+  .fact b { font-weight: 600; }
+  .flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 13px; min-width: 0; }
+  .step .n { font: 500 11px var(--mono); color: var(--sub); }
+  .step.drop { border-color: var(--hot); }
+  .step.drop .n { color: var(--hot); }
+  .rule { border-left: 3px solid var(--hot); padding: 4px 0 4px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .rule q { font-weight: 600; quotes: "\201C" "\201D"; }
+  .list { display: flex; flex-direction: column; gap: 14px; }
+  .short { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .thumb { width: 112px; aspect-ratio: 9/16; max-width: 100%; border-radius: 9px; overflow: hidden; background: var(--chip); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+  .num { font: 500 13px var(--mono); color: var(--hot); }
+  .name { font-weight: 600; font-size: 16px; }
+  .date { font: 400 12px var(--mono); color: var(--sub); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
+  .tag { font-size: 11.5px; background: var(--chip); border-radius: 20px; padding: 2px 9px; color: var(--fg); }
+  .what { margin-bottom: 8px; }
+  .why { margin-bottom: 10px; }
+  .hash { font: 500 12.5px var(--mono); color: var(--fg); word-break: break-word; }
+  .why-h { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--hot); margin-bottom: 4px; }
+  .why ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+  dl { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 4px 10px; margin: 0 0 12px; font-size: 13.5px; }
+  dt { color: var(--sub); }
+  dd { margin: 0; min-width: 0; }
+  dd .en { font-weight: 600; }
+  dd .vi { color: var(--sub); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 13.5px; padding: 8px 14px; border-radius: 9px; }
+  .btn:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+  .btn + .btn { margin-left: 6px; }
+  .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--sub); font-weight: 500; }
+  .ask { display: flex; flex-direction: column; gap: 6px; padding-left: 18px; margin: 0; }
+  footer { color: var(--sub); font-size: 12.5px; }
+  @media (max-width: 640px) {
+    .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .short { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+    .thumb { width: 76px; }
+    dl { grid-template-columns: minmax(0, 1fr); }
+    dt { margin-top: 4px; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Promer AI · YouTube Shorts · Tuần 0 · chờ duyệt</div>
+    <h1>7 Shorts cho merchant bán trên Shopify</h1>
+    <p class="lede">Bảy video ngắn 15 giây, mỗi ngày một video từ 29/10 tới 04/11/2026. Mỗi video lấy một tấm ảnh sản phẩm chụp bằng điện thoại, đưa vào Promer AI kèm một ý tưởng, và cho thấy nó thành quảng cáo. Mỗi video có storyboard bằng hình để ai đọc cũng hình dung được.</p>
+    <div class="facts">
+      <span class="fact">Người xem: <b>merchant e-commerce bán trên Shopify</b></span>
+      <span class="fact">Khổ: <b>9:16, khoảng 15 giây</b></span>
+      <span class="fact">Giọng: <b>Emma (giọng chuẩn Promer)</b></span>
+      <span class="fact">Chi phí: <b>56 credit Promer mỗi video</b></span>
+    </div>
+  </header>
+
+  <section class="rule">
+    <h2>Câu mở nói thẳng video dành cho ai</h2>
+    <p>Trong 3 đến 5 giây đầu, giọng đọc gọi đúng tên người xem, ví dụ <q>Shopify sellers, this is how most shoe ads look.</q> Màn hình có thêm chữ nhỏ "For Shopify sellers". Người đúng tệp biết video nói với họ, và YouTube nghe được chủ đề ngay từ đầu.</p>
+    <p>Mỗi video mở bằng <b>một vấn đề merchant gặp hằng ngày</b> với ảnh sản phẩm của ngành đó, rồi cho thấy Promer AI giải vấn đề đó từ chính tấm ảnh ấy. Phép thử: merchant xem xong biết mình làm được gì với ảnh của shop mình.</p>
+    <p class="lede">Câu mở tối đa khoảng 9 chữ cho 3 giây, 14 chữ cho 5 giây (giọng Emma đọc 2,6 đến 3,4 chữ mỗi giây, đo từ Shorts #01). Mỗi video gọi một nền tảng: Shopify trước, Amazon làm video riêng sau.</p>
+  </section>
+
+  <section>
+    <h2>Bảy video</h2>
+    <div class="list">
+
+      <article class="short" id="s02">
+        <div class="thumb"><img src="img/F1_shopify_listing_giay.jpg" alt="Trang shop giày trên Shopify" style="object-position:0 18%"></div>
+        <div>
+          <div class="top"><span class="num">02</span><span class="name">Giày · Hit the ground</span><span class="date">Thứ 5 · 29/10</span></div>
+          <div class="tags"><span class="tag">Làm quảng cáo từ ảnh sản phẩm</span><span class="tag">Trước / sau</span><span class="tag">3 phương án A · B · C</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li><b>50.520</b> shop giày trên Shopify, gấp khoảng <b>3,5</b> lần shop kính</li><li>Thời trang là ngành trả tiền cho Promer nhiều nhất: <b>36%</b> người trả phí</li><li>Thư viện Promer có <b>3.657</b> template giày (shoes + sneakers), nhiều nhất trong 12 ngành đã quét</li><li>Ảnh giày đứng yên không cho thấy độ êm, độ bật; video tiếp đất cho thấy đúng chỗ đó</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Trang shop toàn ảnh giày tĩnh, không cho thấy độ êm, độ bật của giày.</dd>
+            <dt>Số shop Shopify</dt><dd><b>50.520</b> shop giày</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify sellers, this is how most shoe ads look."</span><br><span class="vi">Các chủ shop Shopify, quảng cáo giày thường trông thế này.</span></dd>
+            <dt>Tiêu đề</dt><dd>How to Turn a Sneaker Photo Into a Video Ad With AI</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Cách biến ảnh sản phẩm thành video quảng cáo; ý tưởng quảng cáo cho shop giày<br><span class="vi">Gõ trên YouTube: "product photo to video ai" · "shoes marketing ideas"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #shoesmarketing #productphototovideo #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-02.html">Xem video nói gì + storyboard A · B · C →</a><a class="btn ghost" href="#vi-sao-giay">Vì sao chọn giày</a>
+        </div>
+      </article>
+
+      <article class="short" id="s03">
+        <div class="thumb"><img src="img/T05_sunglasses_20.jpg" alt="Template ma sứ đeo kính"></div>
+        <div>
+          <div class="top"><span class="num">03</span><span class="name">Kính mát · Halloween</span><span class="date">Thứ 6 · 30/10</span></div>
+          <div class="tags"><span class="tag">Ý tưởng theo mùa</span><span class="tag">1 ý tưởng</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Halloween <b>31/10</b>: merchant đang cần quảng cáo mùa lễ ngay</li><li><b>14.382</b> shop kính trên Shopify</li><li>Template duy nhất có chủ đề Halloween trong 7 template đã chọn</li><li>Điểm yếu: từ khoá khớp yếu nhất (chỉ "ad ideas")</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Sắp Halloween mà chưa có quảng cáo mùa lễ, không kịp chụp mới.</dd>
+            <dt>Số shop Shopify</dt><dd><b>14.382</b> shop kính</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify sellers, Halloween is tomorrow. Where's your ad?"</span><br><span class="vi">Mai là Halloween rồi, quảng cáo của bạn đâu?</span></dd>
+            <dt>Tiêu đề</dt><dd>Halloween Ad Idea for Your Shopify Store (Made With AI)</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Ý tưởng quảng cáo Halloween làm kịp trước ngày lễ<br><span class="vi">Gõ trên YouTube: "halloween ad ideas" · "ad ideas"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #halloweenads #adideas #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s03">Xem storyboard →</a>
+        </div>
+      </article>
+
+      <article class="short" id="s04">
+        <div class="thumb"><img src="img/T01_makeup_20.jpg" alt="Template son trong hộp cứu hoả"></div>
+        <div>
+          <div class="top"><span class="num">04</span><span class="name">Son · Break the glass</span><span class="date">Thứ 7 · 31/10</span></div>
+          <div class="tags"><span class="tag">Ý tưởng quảng cáo theo ngành</span><span class="tag">1 ý tưởng</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Từ khoá "lipstick ad ideas" ưu tiên P0, <b>13,8 triệu</b> view</li><li>Nhóm làm đẹp: <b>18%</b> người trả phí cho Promer</li><li>Merchant son thiếu ý tưởng hơn thiếu ảnh: video cho một ý tưởng làm được ngay</li><li>Kéo người xem sang video dài về son</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Ảnh son giống mọi shop khác, không có ý tưởng quảng cáo riêng.</dd>
+            <dt>Số shop Shopify</dt><dd>Cả nhóm chăm sóc da và cơ thể: <b>218.354</b> shop (chưa có số riêng son)</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify beauty brands: in case of boring lips, break the glass."</span><br><span class="vi">Các brand làm đẹp trên Shopify: môi nhạt thì đập kính.</span></dd>
+            <dt>Tiêu đề</dt><dd>Lipstick Ad Idea for Shopify Beauty Brands (Made With AI)</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Ý tưởng quảng cáo son khác với các shop khác (từ khoá ưu tiên P0, 13,8 triệu view)<br><span class="vi">Gõ trên YouTube: "lipstick ad ideas"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #lipstickads #beautymarketing #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s04">Xem storyboard →</a>
+        </div>
+      </article>
+
+      <article class="short" id="s05">
+        <div class="thumb"><img src="img/T04_serum_04.jpg" alt="Template serum và nhân sâm"></div>
+        <div>
+          <div class="top"><span class="num">05</span><span class="name">Skincare · From the root</span><span class="date">Chủ nhật · 01/11</span></div>
+          <div class="tags"><span class="tag">Làm quảng cáo từ ảnh sản phẩm</span><span class="tag">Trước / sau</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Nhóm chăm sóc da và cơ thể: <b>218.354</b> shop, đông nhất trong 7 ngành</li><li>Thư viện Promer có <b>2.510</b> template skincare + <b>1.852</b> template serum</li><li>Nhóm làm đẹp: <b>18%</b> người trả phí cho Promer</li><li>Kéo người xem sang video dài UGC serum</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Chỉ có ảnh chai trên kệ, không nói được thành phần.</dd>
+            <dt>Số shop Shopify</dt><dd>Cả nhóm chăm sóc da và cơ thể: <b>218.354</b> shop (chưa có số riêng serum)</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify skincare brands, don't just show the bottle."</span><br><span class="vi">Các brand skincare trên Shopify, đừng chỉ cho xem cái chai.</span></dd>
+            <dt>Tiêu đề</dt><dd>How to Make a Skincare Ad From One Product Photo (Shopify, AI)</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Cách quảng cáo mỹ phẩm, skincare ngoài ảnh chai trên kệ<br><span class="vi">Gõ trên YouTube: "cosmetic marketing ideas" · "ugc skincare ads"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #skincareads #cosmeticmarketing #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s05">Xem storyboard →</a>
+        </div>
+      </article>
+
+      <article class="short" id="s06">
+        <div class="thumb"><img src="img/T03_watch_17.jpg" alt="Template đồng hồ và tia sáng"></div>
+        <div>
+          <div class="top"><span class="num">06</span><span class="name">Đồng hồ · Every second</span><span class="date">Thứ 2 · 02/11</span></div>
+          <div class="tags"><span class="tag">Làm quảng cáo từ ảnh sản phẩm</span><span class="tag">Trước / sau</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Từ khoá "watch ad ideas", "watch paid ads youtube"</li><li>Thư viện Promer có <b>1.136</b> template đồng hồ; mẫu đồng hồ được dùng nhiều nhất trong các mẫu mới (<b>24</b> lượt)</li><li>Đồng hồ bán bằng chi tiết mặt số, mà ảnh cổ tay hay bị loá</li><li>Kéo người xem sang video dài 5 dạng quảng cáo</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Ảnh cổ tay bị loá, không thấy chi tiết mặt số.</dd>
+            <dt>Số shop Shopify</dt><dd>Cả nhóm phụ kiện: <b>197.961</b> shop (chưa có số riêng đồng hồ)</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Selling watches on Shopify? Your photo should show every detail."</span><br><span class="vi">Bán đồng hồ trên Shopify? Ảnh phải thấy được từng chi tiết.</span></dd>
+            <dt>Tiêu đề</dt><dd>How to Make Your Watch Photo Look Like a Luxury Ad (Shopify, AI)</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Ý tưởng quảng cáo đồng hồ, quảng cáo đồng hồ trên YouTube<br><span class="vi">Gõ trên YouTube: "watch ad ideas" · "watch paid ads youtube"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #watchads #productphototovideo #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s06">Xem storyboard →</a>
+        </div>
+      </article>
+
+      <article class="short" id="s07">
+        <div class="thumb"><img src="img/T06_jewelry_21.jpg" alt="Template nhẫn trên mặt trăng đen"></div>
+        <div>
+          <div class="top"><span class="num">07</span><span class="name">Trang sức · Rise</span><span class="date">Thứ 3 · 03/11</span></div>
+          <div class="tags"><span class="tag">Ý tưởng theo mùa quà tặng</span><span class="tag">1 ý tưởng</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Từ khoá "jewelry advertising ideas", "ads for jewelry"</li><li>Thư viện Promer có <b>1.339</b> template trang sức</li><li>Đồ nhỏ, khó chụp đẹp bằng điện thoại: chỗ AI giúp được nhiều nhất</li><li>Đúng mùa quà tặng cuối năm, kéo sang video dài trang sức</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Đồ nhỏ, khó chụp, ảnh trên khay nhung trông rẻ.</dd>
+            <dt>Số shop Shopify</dt><dd>Cả nhóm phụ kiện: <b>197.961</b> shop (chưa có số riêng trang sức)</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify jewelry sellers, your ring deserves a sunrise."</span><br><span class="vi">Shop trang sức trên Shopify, chiếc nhẫn của bạn xứng đáng có một bình minh.</span></dd>
+            <dt>Tiêu đề</dt><dd>Jewelry Ad Idea for Your Shopify Store: From a Phone Photo</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Cách quảng cáo trang sức, đồ nhỏ khó chụp<br><span class="vi">Gõ trên YouTube: "jewelry advertising ideas" · "ads for jewelry"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #jewelryads #jewelrymarketing #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s07">Xem storyboard →</a>
+        </div>
+      </article>
+
+      <article class="short" id="s08">
+        <div class="thumb"><img src="img/T07_handbag_18.jpg" alt="Template túi tote cắm hoa"></div>
+        <div>
+          <div class="top"><span class="num">08</span><span class="name">Túi xách · Bloom</span><span class="date">Thứ 4 · 04/11</span></div>
+          <div class="tags"><span class="tag">Làm quảng cáo từ ảnh sản phẩm</span><span class="tag">Trước / sau</span></div>
+          <div class="why"><div class="why-h">Vì sao chọn</div><ul><li>Nhóm phụ kiện: <b>197.961</b> shop trên Shopify</li><li>Thư viện Promer có <b>1.430</b> template túi xách</li><li>Thời trang là ngành trả tiền cho Promer nhiều nhất: <b>36%</b> người trả phí</li><li>Góc quà tặng mùa lễ, kéo sang video dài về thời trang</li></ul></div>
+          <dl>
+            <dt>Vấn đề shop</dt><dd>Ảnh túi treo trên móc, không có không khí quà tặng.</dd>
+            <dt>Số shop Shopify</dt><dd>Cả nhóm phụ kiện: <b>197.961</b> shop (chưa có số riêng túi)</dd>
+            <dt>Câu mở</dt><dd><span class="en">"Shopify sellers: one bag photo, one gift ad."</span><br><span class="vi">Một tấm ảnh túi, một quảng cáo quà tặng.</span></dd>
+            <dt>Tiêu đề</dt><dd>How to Turn a Bag Photo Into a Gift Ad With AI (Shopify)</dd>
+          
+            <dt>Người xem tìm gì</dt><dd>Mẫu video quảng cáo cho shop thời trang, phụ kiện<br><span class="vi">Gõ trên YouTube: "clothing store ad video template" · "clothing brand ad creative"</span></dd>
+            <dt>Hashtag</dt><dd><span class="hash">#shopify #fashionads #clothingbrand #aiads #shorts</span></dd>
+          </dl>
+          <a class="btn" href="storyboard-shorts-03-08.html#s08">Xem storyboard →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="vi-sao-giay">
+    <h2>Vì sao Short 02 là giày</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Lý do</th><th>Số liệu</th></tr>
+      <tr><td>Shop giày trên Shopify nhiều</td><td>• <b>50.520</b> shop giày đang hoạt động, khoảng <b>1,6%</b> trong <b>3.189.133</b> shop Shopify<br>• Khoảng <b>5,9%</b> nhóm thời trang (<b>862.961</b> shop), đứng <b>thứ 4</b> trong nhóm<br>• Ở Mỹ: <b>16.758</b> shop (<b>33,2%</b>)<br>• Nhiều gấp khoảng <b>3,5</b> lần shop kính (<b>14.382</b>)</td></tr>
+      <tr><td>Thời trang là ngành trả tiền cho Promer nhiều nhất</td><td><b>36%</b> người trả phí là thời trang; giày thuộc nhóm này (chưa có số riêng)</td></tr>
+      <tr><td>Thư viện Promer có nhiều mẫu giày</td><td>• "shoes": <b>2.152</b> template<br>• "sneakers": <b>1.505</b> template<br>• Cộng lại đứng đầu 12 ngành đã quét</td></tr>
+      <tr><td>Merchant đang tìm</td><td>• "shoes marketing ideas": từ khoá chính của trang Ad Concept<br>• Trang Image to Video: <b>76,7</b> trong 100 lượt vào bấm vào app</td></tr>
+      <tr><td>Ảnh tĩnh thiệt nhất với giày</td><td>Điểm bán của giày là độ êm, độ bật khi bước; ảnh trên sàn không cho thấy, video tiếp đất thì cho thấy</td></tr>
+    </table></div>
+    <h2 style="margin-top:18px">Vì sao là tấm ảnh đôi giày này</h2>
+    <ul class="ask">
+      <li><b>Chỉ có sản phẩm, không có người:</b> AI Ad Animation không dựng được người thật.</li>
+      <li><b>Có sẵn một chuyển động rõ:</b> giày rơi, đất đen nổ tung, đặt đúng lúc nhạc drop (<b>6,95</b> giây).</li>
+      <li><b>Trước và sau khác nhau ngay trong 1 giây:</b> sàn gạch đèn vàng so với nền cam lửa, đất đen.</li>
+      <li><b>Đôi giày phổ thông:</b> giày chạy bộ xám đen, đế trắng; merchant bán sneaker nào cũng thấy giống hàng mình.</li>
+      <li><b>Phải đổi một chỗ:</b> template có logo Nike; video thật dùng giày nhãn Promer ở gót, ghi "AI-generated · Fictional brand".</li>
+    </ul>
+    <p class="lede" style="margin-top:8px">Nguồn số shop: <a href="https://storeleads.app/reports/shopify/category/Apparel/Footwear" target="_blank" rel="noopener">Store Leads</a>, cập nhật 23/10/2026. Số người trả phí, template và trang đích: số đo nội bộ của Promer. Chưa có: số merchant giày đang dùng Promer, số lượt tìm "shoes marketing ideas" trên YouTube.</p>
+  </section>
+
+  <section class="rule">
+    <h2>Cách chọn hashtag</h2>
+    <p>Mỗi video 5 hashtag, xếp theo thứ tự: <b>#shopify</b> (gọi đúng tệp) · hashtag ngành · hashtag việc merchant muốn làm · <b>#aiads</b> · <b>#shorts</b>. Hashtag lấy từ chính từ khoá merchant gõ trên YouTube (dòng "Người xem tìm gì"), viết liền không dấu cách.</p>
+    <p class="lede">YouTube hiện 3 hashtag đầu ở trên tiêu đề, nên 3 cái đầu là tệp, ngành và việc. Chưa đo số lượt xem theo từng hashtag; đo sau 7 ngày trong YouTube Studio.</p>
+  </section>
+
+  <section>
+    <h2>Chi phí</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Khoản</th><th>Mỗi video</th><th>7 video</th></tr>
+      <tr><td>Ảnh đầu vào trong Promer AI</td><td>8 credit</td><td>56 credit</td></tr>
+      <tr><td>Video quảng cáo 8 giây (Ad Animation, tắt tiếng)</td><td>48 credit</td><td>336 credit</td></tr>
+      <tr><td><b>Tổng Promer AI</b></td><td><b>56 credit</b></td><td><b>392 credit</b></td></tr>
+    </table></div>
+    <p class="lede" style="margin-top:8px">Chưa tính lượt tạo lại khi video lỗi. Giọng đọc ElevenLabs tính riêng.</p>
+  </section>
+
+  <section>
+    <h2>Đang chờ quyết</h2>
+    <ol class="ask">
+      <li>Shorts 02 chọn storyboard A, B hay C.</li>
+      <li>Duyệt nội dung 6 video còn lại (03 tới 08).</li>
+      <li>Chọn thêm nhạc: kho hiện chỉ đủ cho 2 video.</li>
+      <li>Kiểm số dư credit Promer AI trước khi tạo video.</li>
+    </ol>
+  </section>
+
+  <footer>Storyboard là bản để hình dung, dùng ảnh template của thư viện Promer AI (có logo thương hiệu thật) để thấy màu và bố cục. Video thật dùng sản phẩm mang nhãn Promer, tạo trong Promer AI. Soạn 28/10/2026.</footer>
+</div>

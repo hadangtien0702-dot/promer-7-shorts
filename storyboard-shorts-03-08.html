@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorts 03-08 Storyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0f13;--card:#17181e;--line:#2a2c35;--text:#e9eaf0;--sub:#9a9db0;--accent:#ff7a1a;--promer:#E2E3E9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;padding:24px 16px 48px}
+.wrap{max-width:1600px;margin:0 auto}h1{font-size:20px;font-weight:600;margin:0 0 6px}h2{font-size:18px;font-weight:600;margin:0 0 6px}
+h2 .tag{display:inline-block;font:500 12px "DM Mono",monospace;background:var(--accent);color:#111;padding:2px 8px;border-radius:6px;margin-right:8px;vertical-align:2px}
+.meta{color:var(--sub);font-size:13px;line-height:1.6}.meta b{color:var(--text);font-weight:500}
+table.cmp{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:12.5px}.cmp th,.cmp td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;line-height:1.45}.cmp th{color:var(--sub);font-weight:500;background:#15161b}
+section{margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.timeline{margin:16px 0 20px;position:relative;height:46px}.bar{position:absolute;top:18px;left:0;right:0;height:10px;border-radius:5px;background:#22242c;overflow:hidden;display:flex}.seg{height:100%;border-right:1px solid var(--bg)}
+.tick{position:absolute;top:0;font:500 11px "DM Mono",monospace;color:var(--sub);transform:translateX(-50%);white-space:nowrap}.tick.drop{color:var(--accent)}.tick::after{content:"";position:absolute;left:50%;top:16px;width:1px;height:16px;background:currentColor}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.frame{position:relative;aspect-ratio:9/16;overflow:hidden;background:#000}.frame>img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;top:8px;left:8px;font:500 11px "DM Mono",monospace;background:rgba(0,0,0,.6);color:#fff;padding:3px 7px;border-radius:6px;z-index:4}.chip.drop{background:var(--accent);color:#111}
+.note{position:absolute;left:8px;right:8px;bottom:8px;font-size:11px;color:#fff;background:rgba(0,0,0,.55);padding:6px 8px;border-radius:8px;line-height:1.35;z-index:4}
+.who{position:absolute;left:50%;top:40px;transform:translateX(-50%);font:500 10px Inter;color:#fff;background:rgba(20,20,26,.72);border:1px solid rgba(255,255,255,.35);padding:3px 9px;border-radius:20px;z-index:5;white-space:nowrap}
+.body{padding:10px 12px 12px;font-size:12.5px;line-height:1.5}.body h3{margin:0 0 4px;font-size:13px;font-weight:600}.body .vo{color:var(--accent);font-style:italic}.body .cut{color:var(--sub)}
+.before{position:absolute;inset:0}.before .ph{position:absolute;left:12%;right:12%;top:22%;bottom:26%;overflow:hidden;border-radius:4px;transform:rotate(-5deg);box-shadow:0 6px 18px rgba(0,0,0,.25)}.before .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.8) brightness(.9) contrast(.85) blur(.4px)}
+.promerbg{position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,#f4f0ff 0%,var(--promer) 55%,#cfd1db 100%)}
+.pbox{position:absolute;left:7%;right:7%;top:32%;background:#1c1d22;border-radius:16px;padding:10px;color:#fff;font-size:10px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:2}
+.pbox .thumb{width:34px;height:34px;border-radius:7px;overflow:hidden;margin-bottom:6px}.pbox .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(.8)}
+.pbox .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;color:#9a9db0;font-size:9px}.pbox .send{width:20px;height:20px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:11px}
+.cursor{position:absolute;right:12%;top:60%;font-size:20px;z-index:3}
+.zoom>img{transform:scale(2.2)}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}.split>div{position:relative;overflow:hidden}.split .line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:2}
+.split img{position:absolute;height:100%;width:200%;object-fit:cover;left:-50%}
+.lbl{position:absolute;top:34px;font:500 10px "DM Mono",monospace;color:#fff;background:rgba(0,0,0,.55);padding:2px 6px;border-radius:4px;z-index:3}
+.ideacard{position:absolute;left:10%;right:10%;bottom:22%;background:rgba(255,255,255,.92);color:#2C2C34;border-radius:12px;padding:10px;font-size:11px;font-weight:500;z-index:3;box-shadow:0 8px 24px rgba(0,0,0,.3)}.ideacard small{display:block;color:#717582;font-weight:400;margin-bottom:3px;font-size:9px}
+.outro{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,#fff 0%,var(--promer) 60%,#c9cbd6 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#2C2C34;text-align:center;padding:0 10px}
+.outro img{width:62%;height:auto;aspect-ratio:94/24}.outro .t1{font-size:12px;font-weight:500}.outro .t2{font-size:9px;color:#717582}
+.warn{margin:16px 0 0;color:var(--sub);font-size:12.5px;line-height:1.6}.warn b{color:var(--text)}
+a{color:#8fb8ff}.said{background:rgba(255,255,255,.06);border-left:3px solid #ff7a1a;padding:8px 12px;border-radius:6px;margin:8px 0 10px;font-size:14px;line-height:1.5}.flow6{margin:12px 0 14px}.flow6-h{font-weight:600;font-size:15px;margin-bottom:8px}.flow6-g{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.flow6 .st{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px;font-size:13px;line-height:1.4;min-width:0}.flow6 .st .n{font:500 11px "DM Mono",ui-monospace,monospace;opacity:.7;margin-bottom:4px}.flow6 .st.drop{border-color:#ff7a1a}.flow6 .st.drop .n{color:#ff7a1a;opacity:1}@media(max-width:640px){.flow6-g{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><div class="wrap">
+<h1>Shorts 03–08 · Storyboard hướng chính (6 video)</h1>
+<div class="meta">Theo <b>PLAN_TRIEN_KHAI_7_SHORTS.md</b>. Shorts 02 (giày) có trang riêng với 3 hướng A · B · C: <a href="storyboard-shorts-02.html">storyboard-shorts-02.html</a>.<br>
+Mọi video dùng <b>khung chung</b> 6 khung: ảnh thường → một ý tưởng trong Promer AI → khoảnh khắc lớn ở drop → khung cận → trước/sau hoặc thẻ ý tưởng → outro. Khác nhau ở <b>chuyển động chính</b> (cột cuối bảng).<br>
+<b>Câu mở gọi đúng tệp:</b> chữ "Shopify" nằm trong 1,5 giây đầu, kèm chữ nhỏ "For Shopify sellers" 0–3 giây. Số giây ước theo tốc độ giọng Emma đo từ Shorts #01: 2,6–3,4 chữ/giây.<br>
+<b>Nhịp là giả định</b> (drop ở 7,0 giây): nhạc của từng video chưa chọn, chọn xong đo bằng <code>do-beat.js</code> rồi dời mốc.</div>
+<div class="flow6"><div class="flow6-h">Mỗi video đi qua 6 cảnh</div><div class="flow6-g">
+<div class="st"><div class="n">1 · 0–3 giây</div>Ảnh thường chụp bằng điện thoại, câu mở gọi tên chủ shop Shopify</div>
+<div class="st"><div class="n">2 · 3–7 giây</div>Ảnh thả vào Promer AI, viết một ý tưởng</div>
+<div class="st drop"><div class="n">3 · drop nhạc</div>Khoảnh khắc lớn: video quảng cáo do Promer AI tạo</div>
+<div class="st"><div class="n">4</div>Khung cận sản phẩm, thấy rõ nhãn</div>
+<div class="st"><div class="n">5</div>Trước / sau, hoặc thẻ ý tưởng</div>
+<div class="st"><div class="n">6</div>Logo Promer, ghi rõ "AI-generated"</div>
+</div></div>
+  <div style="overflow-x:auto"><table class="cmp"><tr><th>#</th><th>Video</th><th>Đăng</th><th>Pillar · khuôn</th><th>Câu mở (0–3/5 giây)</th><th>Độ dài câu mở</th><th>Chuyển động chính</th></tr><tr><td>03</td><td>Kính mát · Halloween</td><td>T6 30/10</td><td>P3 · 1 ý tưởng</td><td>"Shopify sellers, Halloween is tomorrow. Where's your ad?"</td><td>8 chữ · 2,4–3,1 giây</td><td>Hiện dần từ bóng tối</td></tr><tr><td>04</td><td>Son · Break the glass</td><td>T7 31/10</td><td>P3 · 1 ý tưởng</td><td>"Shopify beauty brands: in case of boring lips, break the glass."</td><td>11 chữ · 3,2–4,2 giây</td><td>Kính vỡ quay chậm</td></tr><tr><td>05</td><td>Skincare · From the root</td><td>CN 01/11</td><td>P1 · trước / sau</td><td>"Shopify skincare brands, don't just show the bottle."</td><td>8 chữ · 2,4–3,1 giây</td><td>Giọt rơi, rễ lan</td></tr><tr><td>06</td><td>Đồng hồ · Every second</td><td>T2 02/11</td><td>P1 · trước / sau</td><td>"Selling watches on Shopify? Your photo should show every detail."</td><td>10 chữ · 2,9–3,8 giây</td><td>Tia sáng quét mặt số</td></tr><tr><td>07</td><td>Trang sức · Rise</td><td>T3 03/11</td><td>P3 · 1 ý tưởng</td><td>"Shopify jewelry sellers, your ring deserves a sunrise."</td><td>8 chữ · 2,4–3,1 giây</td><td>Nhẫn mọc lên</td></tr><tr><td>08</td><td>Túi xách · Bloom</td><td>T4 04/11</td><td>P1 · trước / sau</td><td>"Shopify sellers: one bag photo, one gift ad."</td><td>8 chữ · 2,4–3,1 giây</td><td>Hoa nở bung</td></tr></table></div>
+
+<section id="s03">
+  <h2><span class="tag">03</span>Kính mát · Halloween <span class="meta">· P3 · 1 ý tưởng · angle A4 Kịp mùa sale · đăng T6 30/10</span></h2>
+  <div class="said"><b>Video nói gì:</b> Ý tưởng quảng cáo Halloween làm kịp trong một ngày: con ma sứ trắng hiện ra từ bóng tối, đeo kính mát của shop, ánh đèn loé trên tròng kính.</div>
+  <div class="meta">Tiêu đề: <b>Halloween Ad Idea for Your Shopify Store (Made With AI)</b> · Câu mở: <b>"Shopify sellers, Halloween is tomorrow. Where's your ad?"</b> (8 chữ, khoảng 2,4–3,1 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#d9c7a8,#a8916c)"><div class="ph"><img src="img/T05_sunglasses_20.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Kính mát đặt trên bàn gỗ, chụp điện thoại. Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify sellers, Halloween is tomorrow. Where's your ad?"</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T05_sunglasses_20.jpg" alt=""></div>Add my idea: <b>a white porcelain ghost wearing these sunglasses, dark blue studio, a light flashes across the lenses</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"One idea: a ghost wearing your shades."</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T05_sunglasses_20.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Màn tối, con ma sứ trắng hiện dần ra từ bóng tối, đeo kính.</div></div>
+      <div class="body"><h3>Sau: Hiện dần từ bóng tối</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T05_sunglasses_20.jpg" alt="" style="transform-origin:62% 32%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận tròng kính: một vệt đèn loé chạy ngang tròng.</div></div>
+      <div class="body"><h3>Vệt đèn loé trên tròng</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T05_sunglasses_20.jpg" alt="" style="filter:brightness(.75)"><div class="ideacard"><small>Promer AI</small>Halloween ad idea #1 · Boo-tiful shades</div><span class="chip">F5 · 11,0–13,0</span><div class="note">Thẻ ý tưởng trượt lên.</div></div>
+      <div class="body"><h3>Thẻ ý tưởng</h3><span class="vo">"Made in Promer AI. Post it tonight."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Logo Ray-Ban trên kính của template: bản thật là kính nhãn Promer. Đăng 30/10 nên câu mở nói "tomorrow"; lỡ sang 31/10 thì đổi thành "tonight".</p>
+</section>
+
+<section id="s04">
+  <h2><span class="tag">04</span>Son · Break the glass <span class="meta">· P3 · 1 ý tưởng · angle A5 Đừng đoán · đăng T7 31/10</span></h2>
+  <div class="said"><b>Video nói gì:</b> Thỏi son đặt trong hộp cứu hoả ghi "In case of boring lips, break the glass". Búa gõ một nhát, kính vỡ quay chậm, thỏi son đỏ lộ ra.</div>
+  <div class="meta">Tiêu đề: <b>Lipstick Ad Idea for Shopify Beauty Brands (Made With AI)</b> · Câu mở: <b>"Shopify beauty brands: in case of boring lips, break the glass."</b> (11 chữ, khoảng 3,2–4,2 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#f2f2f2,#cfcfcf)"><div class="ph"><img src="img/T01_makeup_20.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Thỏi son nằm trên bàn trắng, chụp điện thoại, chữ nhỏ "BORING?". Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify beauty brands: in case of boring lips, break the glass."</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T01_makeup_20.jpg" alt=""></div>Add my idea: <b>this lipstick inside a red fire-alarm box, a hammer hits the glass, glass shatters in slow motion</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"One idea in Promer AI..."</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T01_makeup_20.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Búa gõ một nhát, kính vỡ quay chậm, thỏi son đỏ lộ ra.</div></div>
+      <div class="body"><h3>Sau: Kính vỡ quay chậm</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T01_makeup_20.jpg" alt="" style="transform-origin:50% 52%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận thỏi son đỏ trong hộp, mảnh kính rơi.</div></div>
+      <div class="body"><h3>Phóng cận thỏi son</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><div class="split"><div><div class="before" style="background:linear-gradient(160deg,#f2f2f2,#cfcfcf)"><div class="ph" style="left:-20%;right:-20%"><img src="img/T01_makeup_20.jpg" alt=""></div></div><span class="lbl" style="left:6px">BEFORE</span></div><div><img src="img/T01_makeup_20.jpg" alt=""><span class="lbl" style="right:6px">AFTER</span></div><span class="line"></span></div><span class="chip">F5 · 11,0–13,0</span><div class="note">Quét chia đôi trước / sau.</div></div>
+      <div class="body"><h3>Trước / sau</h3><span class="vo">"...and your lipstick gets its moment."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Logo Lord & Berry trên thỏi son của template: bản thật nhãn Promer. Kính vỡ là chuyển động AI hay làm méo: có thể phải tạo lại 1 lần (thêm 48 credit). Câu mở 11 chữ nên dùng cửa sổ 5 giây.</p>
+</section>
+
+<section id="s05">
+  <h2><span class="tag">05</span>Skincare · From the root <span class="meta">· P1 · trước / sau · angle A1 Không cần studio · đăng CN 01/11</span></h2>
+  <div class="said"><b>Video nói gì:</b> Chai serum chụp trên kệ phòng tắm thành quảng cáo kể nguồn gốc: một giọt serum rơi chậm, chạm xuống thì rễ nhân sâm lan ra thành nền.</div>
+  <div class="meta">Tiêu đề: <b>How to Make a Skincare Ad From One Product Photo (Shopify, AI)</b> · Câu mở: <b>"Shopify skincare brands, don't just show the bottle."</b> (8 chữ, khoảng 2,4–3,1 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#eef1f3,#c9d0d6)"><div class="ph"><img src="img/T04_serum_04.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Chai serum trên kệ phòng tắm, chụp điện thoại. Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify skincare brands, don't just show the bottle."</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T04_serum_04.jpg" alt=""></div>Add my idea: <b>one golden drop falls from the dropper, ginseng roots spread across the background, warm amber light</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"Show where it comes from."</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T04_serum_04.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Một giọt serum rơi chậm, chạm xuống thì rễ nhân sâm lan ra thành nền.</div></div>
+      <div class="body"><h3>Sau: Giọt rơi, rễ lan</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T04_serum_04.jpg" alt="" style="transform-origin:45% 30%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận giọt serum treo trên đầu ống nhỏ giọt.</div></div>
+      <div class="body"><h3>Phóng cận giọt</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><div class="split"><div><div class="before" style="background:linear-gradient(160deg,#eef1f3,#c9d0d6)"><div class="ph" style="left:-20%;right:-20%"><img src="img/T04_serum_04.jpg" alt=""></div></div><span class="lbl" style="left:6px">BEFORE</span></div><div><img src="img/T04_serum_04.jpg" alt=""><span class="lbl" style="right:6px">AFTER</span></div><span class="line"></span></div><span class="chip">F5 · 11,0–13,0</span><div class="note">Quét chia đôi trước / sau.</div></div>
+      <div class="body"><h3>Trước / sau</h3><span class="vo">"One photo, one idea, in Promer AI."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Logo Mercilen trên chai của template: bản thật nhãn Promer. Không nói công dụng trên da (luật PDF 6.1).</p>
+</section>
+
+<section id="s06">
+  <h2><span class="tag">06</span>Đồng hồ · Every second <span class="meta">· P1 · trước / sau · angle A2 Ảnh điện thoại là đủ · đăng T2 02/11</span></h2>
+  <div class="said"><b>Video nói gì:</b> Ảnh đồng hồ trên cổ tay bị loá đèn thành quảng cáo cận chi tiết: tia sáng xanh quét chéo mặt số, kim giây chạy khớp nhịp nhạc.</div>
+  <div class="meta">Tiêu đề: <b>How to Make Your Watch Photo Look Like a Luxury Ad (Shopify, AI)</b> · Câu mở: <b>"Selling watches on Shopify? Your photo should show every detail."</b> (10 chữ, khoảng 2,9–3,8 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#d7dadf,#9fa5ad)"><div class="ph"><img src="img/T03_watch_17.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Đồng hồ trên cổ tay dưới đèn văn phòng, mặt kính loá. Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Selling watches on Shopify? Your photo should show every detail."</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T03_watch_17.jpg" alt=""></div>Add my idea: <b>a thin blue light beam sweeps across the watch face on black, the second hand ticks, macro detail</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"One idea in Promer AI..."</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T03_watch_17.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Tia sáng xanh quét chéo mặt số trên nền đen, kim giây chạy.</div></div>
+      <div class="body"><h3>Sau: Tia sáng quét mặt số</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T03_watch_17.jpg" alt="" style="transform-origin:55% 45%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận kim giây, mỗi tích tắc rơi đúng một nhịp nhạc.</div></div>
+      <div class="body"><h3>Kim giây khớp nhịp</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><div class="split"><div><div class="before" style="background:linear-gradient(160deg,#d7dadf,#9fa5ad)"><div class="ph" style="left:-20%;right:-20%"><img src="img/T03_watch_17.jpg" alt=""></div></div><span class="lbl" style="left:6px">BEFORE</span></div><div><img src="img/T03_watch_17.jpg" alt=""><span class="lbl" style="right:6px">AFTER</span></div><span class="line"></span></div><span class="chip">F5 · 11,0–13,0</span><div class="note">Quét chia đôi trước / sau.</div></div>
+      <div class="body"><h3>Trước / sau</h3><span class="vo">"...and every second shows."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Chữ và vạch trên mặt số dễ méo khi AI tạo video: soi từng khung. Bỏ dòng chữ quảng cáo của brand trên template. Câu mở 10 chữ, dùng cửa sổ 5 giây.</p>
+</section>
+
+<section id="s07">
+  <h2><span class="tag">07</span>Trang sức · Rise <span class="meta">· P3 · 1 ý tưởng · angle A6 Đồ nhỏ khó chụp · đăng T3 03/11</span></h2>
+  <div class="said"><b>Video nói gì:</b> Nhẫn chụp trên khay nhung, ánh sáng phẳng, thành ý tưởng quà tặng mùa lễ: chiếc nhẫn từ từ mọc lên từ mặt trăng đen như mặt trời mọc.</div>
+  <div class="meta">Tiêu đề: <b>Jewelry Ad Idea for Your Shopify Store: From a Phone Photo</b> · Câu mở: <b>"Shopify jewelry sellers, your ring deserves a sunrise."</b> (8 chữ, khoảng 2,4–3,1 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#5a2430,#2e1118)"><div class="ph"><img src="img/T06_jewelry_21.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Nhẫn trên khay nhung đỏ, ánh sáng phẳng, đá không lấp lánh. Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify jewelry sellers, your ring deserves a sunrise."</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T06_jewelry_21.jpg" alt=""></div>Add my idea: <b>this ring slowly rises over the horizon of a black moon like a sunrise, soft rim light, deep black sky</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"Small product, hard to shoot?"</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T06_jewelry_21.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Nhẫn từ từ mọc lên từ đường chân trời mặt trăng đen như mặt trời mọc.</div></div>
+      <div class="body"><h3>Sau: Nhẫn mọc lên</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T06_jewelry_21.jpg" alt="" style="transform-origin:50% 38%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận viên đá: ánh viền sáng chạy quanh mép đá.</div></div>
+      <div class="body"><h3>Viền sáng quanh đá</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T06_jewelry_21.jpg" alt="" style="filter:brightness(.75)"><div class="ideacard"><small>Promer AI</small>Holiday gift ad idea · Rise</div><span class="chip">F5 · 11,0–13,0</span><div class="note">Thẻ ý tưởng trượt lên.</div></div>
+      <div class="body"><h3>Thẻ ý tưởng</h3><span class="vo">"Give it a sunrise, in Promer AI."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Template có bụi sao: KHÔNG thêm hạt sáng lơ lửng (luật cấm của anh). Chi tiết nhỏ của nhẫn dễ méo.</p>
+</section>
+
+<section id="s08">
+  <h2><span class="tag">08</span>Túi xách · Bloom <span class="meta">· P1 · trước / sau · angle A1 Không cần studio · đăng T4 04/11</span></h2>
+  <div class="said"><b>Video nói gì:</b> Ảnh túi tote treo trên móc thành quảng cáo quà tặng: túi đặt trên ghế nhung giữa đồng cỏ, hoa nở bung ra từ miệng túi.</div>
+  <div class="meta">Tiêu đề: <b>How to Turn a Bag Photo Into a Gift Ad With AI (Shopify)</b> · Câu mở: <b>"Shopify sellers: one bag photo, one gift ad."</b> (8 chữ, khoảng 2,4–3,1 giây) · Credit Promer: 56</div>
+  <div class="timeline"><div class="bar"><div class="seg" style="width:20.0%;background:#b79b6c"></div><div class="seg" style="width:26.7%;background:#9fa2b3"></div><div class="seg" style="width:16.7%;background:#ff7a1a"></div><div class="seg" style="width:10.0%;background:#c45410"></div><div class="seg" style="width:13.3%;background:#7a5a3a"></div><div class="seg" style="width:13.3%;background:#E2E3E9"></div></div><span class="tick" style="left:0.0%">0,0</span><span class="tick" style="left:20.0%">3,0</span><span class="tick drop" style="left:46.7%">DROP 7,0</span><span class="tick" style="left:63.3%">9,5</span><span class="tick" style="left:73.3%">11,0</span><span class="tick" style="left:86.7%">13,0</span><span class="tick" style="left:99%">15,0</span></div>
+  <div class="grid">
+    <div class="card"><div class="frame"><div class="before" style="background:linear-gradient(160deg,#e8e0d2,#bfb3a0)"><div class="ph"><img src="img/T07_handbag_18.jpg" alt=""></div></div><span class="chip">F1 · 0–3,0</span><span class="who">For Shopify sellers</span><div class="note">Túi tote treo trên móc tường, chụp điện thoại. Minh hoạ; ảnh thật tạo trong Promer.</div></div>
+      <div class="body"><h3>Trước: ảnh thường</h3>Đẩy máy vào chậm.<br><span class="vo">"Shopify sellers: one bag photo, one gift ad."</span></div></div>
+    <div class="card"><div class="frame"><div class="promerbg"></div><div class="pbox"><div class="thumb"><img src="img/T07_handbag_18.jpg" alt=""></div>Add my idea: <b>this tote bag used as a flower vase on a velvet bench in a meadow, flowers bloom out of the bag, soft daylight</b><div class="row"><span>＋ ⧉ Workflows</span><span class="send">↑</span></div></div><span class="cursor">➚</span><span class="chip">F2 · 3,0–7,0</span><div class="note">Ảnh thả vào thanh prompt Promer AI (UI dựng trong AE), ý tưởng hiện dần, bấm Generate trước drop.</div></div>
+      <div class="body"><h3>Một ý tưởng</h3>Thả có vượt nhẹ, máy lùi chậm.<br><span class="vo">"Don't just sell the bag."</span><br><span class="cut">Velocity ramp vào sản phẩm</span></div></div>
+    <div class="card"><div class="frame"><img src="img/T07_handbag_18.jpg" alt=""><span class="chip drop">F3 · DROP 7,0–9,5</span><div class="note">Video Promer: Túi tote trên ghế nhung giữa đồng cỏ, hoa nở bung ra từ miệng túi.</div></div>
+      <div class="body"><h3>Sau: Hoa nở bung</h3>Khoảnh khắc lớn nhất, đúng drop.<br><span class="cut">Cắt cứng ở 9,5</span></div></div>
+    <div class="card"><div class="frame zoom"><img src="img/T07_handbag_18.jpg" alt="" style="transform-origin:50% 62%"><span class="chip">F4 · 9,5–11,0</span><div class="note">Cận quai túi và nhãn Promer, cánh hoa lay nhẹ.</div></div>
+      <div class="body"><h3>Phóng cận nhãn</h3>Khung cận, nhãn Promer rõ.<br><span class="cut">Cắt cứng ở 11,0</span></div></div>
+    <div class="card"><div class="frame"><div class="split"><div><div class="before" style="background:linear-gradient(160deg,#e8e0d2,#bfb3a0)"><div class="ph" style="left:-20%;right:-20%"><img src="img/T07_handbag_18.jpg" alt=""></div></div><span class="lbl" style="left:6px">BEFORE</span></div><div><img src="img/T07_handbag_18.jpg" alt=""><span class="lbl" style="right:6px">AFTER</span></div><span class="line"></span></div><span class="chip">F5 · 11,0–13,0</span><div class="note">Quét chia đôi trước / sau.</div></div>
+      <div class="body"><h3>Trước / sau</h3><span class="vo">"Sell the feeling. Made in Promer AI."</span><br><span class="cut">Mờ sang outro ở 13,0</span></div></div>
+    <div class="card"><div class="frame"><div class="outro"><img src="img/promer-logo-ngang.svg" alt="Promer"><div class="t1">Made with Promer AI</div><div class="t2">AI-generated · Fictional brand</div></div><span class="chip">F6 · 13,0–15,0</span></div>
+      <div class="body"><h3>Outro</h3>Logo vào theo luật logo.</div></div>
+  </div>
+  <p class="warn"><b>Rủi ro:</b> Bản 27/10 ghi "Spring Campaign": đổi sang góc quà tặng mùa lễ cho hợp tháng 11, hình hoa nở giữ nguyên. Logo nhỏ ở góc template phải bỏ.</p>
+</section>
+<p class="warn"><b>Đây là bản để hình dung, không phải hình cuối.</b> Mọi khung dùng ảnh template Promer (có logo thương hiệu thật) để thấy màu và bố cục; bản thật là sản phẩm nhãn Promer tạo trong Promer AI. Khung "trước" là ảnh template làm xám đặt lên nền màu, chỉ minh hoạ.</p>
+</div></body></html>
