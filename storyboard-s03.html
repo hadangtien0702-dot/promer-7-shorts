@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorts 03 Storyboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap">
+<style>
+  /* Storyboard Shorts 03: nhan vat + ngon ngu may quay; moi canh mot the: khung 9:16 ben trai, thong so ben phai */
+  :root {
+    --bg: #f1f1f5; --surface: #ffffff; --line: #dee1f3; --fg: #2c2c34; --sub: #717582;
+    --accent: #1b2034; --hot: #e2591a; --pain: #7b4fd6; --ok: #1f8a52; --chip: #f0f0f2; --promer: #873eff;
+    --display: "Inter", "Segoe UI", system-ui, sans-serif; --mono: "DM Mono", ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #111218; --surface: #1a1b22; --line: #2c2e3a; --fg: #e9eaf0; --sub: #9a9db0;
+    --accent: #e9eaf0; --hot: #ff8a3d; --pain: #c38bff; --ok: #46c37b; --chip: #23242d; --promer: #b58cff; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #111218; --surface: #1a1b22; --line: #2c2e3a; --fg: #e9eaf0; --sub: #9a9db0;
+    --accent: #e9eaf0; --hot: #ff8a3d; --pain: #c38bff; --ok: #46c37b; --chip: #23242d; --promer: #b58cff; color-scheme: dark }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--display); font-size: 15px; line-height: 1.55;
+    padding: 32px max(16px, env(safe-area-inset-left, 0px)) 56px; }
+  .wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+  .eyebrow { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--sub); }
+  h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; margin: 6px 0 10px; font-weight: 800; letter-spacing: -.02em; text-wrap: balance; }
+  h2 { font-size: 20px; margin: 0 0 10px; font-weight: 700; }
+  h3 { font-size: 16px; margin: 0 0 6px; font-weight: 700; }
+  p { margin: 0; max-width: 70ch; }
+  .lede { color: var(--sub); }
+  a { color: inherit; }
+  .back { font-size: 13.5px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); border-radius: 20px; padding: 5px 12px; background: var(--surface); display: inline-block; margin-bottom: 14px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .fact { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .cast { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px; align-items: start; }
+  .cast img { width: 120px; aspect-ratio: 9/16; object-fit: cover; border-radius: 10px; display: block; }
+  .cast .pair { display: flex; gap: 8px; }
+  .cast .pair img { width: 56px; }
+  ul.tight { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; font-size: 14px; }
+
+  /* Thanh nhac */
+  .tl { position: relative; padding: 4px 0 34px; }
+  .bar { display: flex; height: 30px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+  .seg { height: 100%; display: flex; align-items: center; justify-content: center; font: 500 10.5px var(--mono); color: #fff; min-width: 0; overflow: hidden; white-space: nowrap; }
+  .seg.c { background: #8a6a4f; } .seg.a { background: var(--promer); } .seg.u { background: #2c2c34; }
+  .tick { position: absolute; top: 40px; transform: translateX(-50%); font: 500 10.5px var(--mono); color: var(--sub); white-space: nowrap; }
+  .tick.drop { color: var(--hot); font-weight: 700; }
+  .tick::before { content: ""; position: absolute; left: 50%; top: -8px; height: 6px; width: 1px; background: currentColor; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--sub); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+
+  /* The canh */
+  .shot { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .shot.ad { border-color: color-mix(in srgb, var(--promer) 45%, var(--line)); }
+  .frame { position: relative; width: 252px; aspect-ratio: 9/16; border-radius: 10px; overflow: hidden; background: #000; container-type: inline-size; }
+  .frame > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .safe { position: absolute; left: 7%; right: 18%; top: 13%; bottom: 25%; border: 1px dashed rgba(255,255,255,.55); pointer-events: none; }
+  .chip { position: absolute; left: 6px; top: 6px; background: rgba(0,0,0,.65); color: #fff; font: 500 10px var(--mono); padding: 2px 6px; border-radius: 6px; }
+  .chip.drop { background: #e2591a; }
+  .sub { position: absolute; left: 0; width: 96%; top: 70.5%; text-align: center; pointer-events: none; }
+  .sub span { display: inline-block; background: rgba(15,15,22,.82); color: #fff; font: 600 4.3cqw/1.25 var(--display); padding: 1.3cqw 2.6cqw; border-radius: 2.4cqw; max-width: 74%; }
+  .sub b { font-weight: 800; font-size: 5.4cqw; color: #a879ff; }
+  .kicker { position: absolute; left: 7%; top: 14%; font: 900 6cqw/1 "Playfair Display", Georgia, serif; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.6); letter-spacing: .01em; }
+  .kicker small { display: block; font: 500 3cqw var(--mono); letter-spacing: .08em; margin-bottom: 1.5cqw; opacity: .9; }
+  .who { position: absolute; left: 7%; top: 9.5%; font: 600 3.2cqw var(--display); color: #fff; background: rgba(0,0,0,.45); padding: .8cqw 2cqw; border-radius: 20px; }
+  .tag-ai { position: absolute; right: 6px; bottom: 6px; font: 500 9px var(--mono); color: #fff; background: rgba(0,0,0,.55); padding: 1px 5px; border-radius: 5px; }
+  .poll { position: absolute; left: 7%; right: 18%; top: 15%; background: rgba(250,248,240,.96); color: #1b2034; border-radius: 2cqw; padding: 3cqw; text-align: center; }
+  .poll .q { font: 900 5.6cqw/1.1 "Playfair Display", Georgia, serif; margin-bottom: 2.4cqw; }
+  .poll .g { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqw; }
+  .poll .g div { position: relative; }
+  .poll .g img { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 1.4cqw; display: block; }
+  .poll .g span { position: absolute; left: 50%; bottom: -2.6cqw; transform: translateX(-50%); background: #1b2034; color: #fff; font: 800 4cqw var(--display); width: 6.4cqw; height: 6.4cqw; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .poll .c { font: 600 3.4cqw var(--display); margin-top: 4.6cqw; }
+  .poll .logo { font: 800 4.4cqw var(--display); letter-spacing: -.04em; margin-top: 1.6cqw; }
+  .ui { position: absolute; left: 9%; right: 20%; top: 40%; background: #f6f7fb; border-radius: 2cqw; padding: 2cqw; box-shadow: 0 2cqw 6cqw rgba(0,0,0,.35); }
+  .ui .t { font: 700 3cqw var(--display); color: #1b2034; margin-bottom: 1.4cqw; }
+  .ui .r { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1fr; gap: 1.2cqw; align-items: center; }
+  .ui img { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 1cqw; display: block; }
+  .ui .arrow { font: 700 3.4cqw var(--display); color: #873eff; text-align: center; }
+
+  .spec { min-width: 0; }
+  .spec .top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-bottom: 8px; }
+  .num { font: 500 13px var(--mono); color: var(--hot); }
+  .name { font-weight: 700; font-size: 16px; }
+  .pill { font: 500 11px var(--mono); border-radius: 20px; padding: 2px 8px; background: var(--chip); }
+  .pill.p { color: var(--promer); font-weight: 600; }
+  .pill.g { color: #8a6a4f; font-weight: 600; }
+  dl { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 5px 12px; margin: 0; font-size: 13.5px; }
+  dt { color: var(--sub); }
+  dd { margin: 0; min-width: 0; }
+  .cam { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cam span { font: 500 12px var(--mono); background: var(--chip); border-radius: 6px; padding: 2px 7px; }
+  .vo .en { font-weight: 600; }
+  .vo .vi { color: var(--sub); }
+  .idea { font: 400 13px/1.5 var(--mono); background: var(--chip); border-radius: 8px; padding: 8px 10px; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--sub); font-weight: 500; }
+  ol.ask { display: flex; flex-direction: column; gap: 8px; padding-left: 20px; margin: 0; }
+  footer { color: var(--sub); font-size: 12.5px; }
+  @media (max-width: 680px) {
+    .two { grid-template-columns: minmax(0, 1fr); }
+    .shot { grid-template-columns: minmax(0, 1fr); }
+    .frame { width: min(252px, 100%); margin: 0 auto; }
+    dl { grid-template-columns: minmax(0, 1fr); }
+    dt { margin-top: 6px; }
+    .seg { font-size: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="back" href="index.html#s03-noidung">← Trang plan chung · Content Shorts 03</a>
+    <div class="eyebrow">Shorts 03 · bước 3 Storyboard · bản 1 · chờ duyệt · 29/10/2026</div>
+    <h1>The Seller Times: Black Friday cho shop cà phê</h1>
+    <p class="lede">Một buổi sáng ở xưởng rang: chủ shop mở tờ báo và đọc tít "Black Friday: your ads aren't ready". Mỗi lần lật trang là một việc của quảng cáo Black Friday (giá · hạn chót · combo), và mỗi trang bung ra thành một video Promer thật làm từ một tấm ảnh chụp điện thoại.</p>
+    <div class="facts">
+      <span class="fact">Dài: <b>khoảng 26 giây</b></span>
+      <span class="fact">Khung: <b>1080×1920, 30 fps</b></span>
+      <span class="fact">Nhạc: <b>ZISO · HELL FM</b>, 120 bpm</span>
+      <span class="fact">Giọng: <b>Emma</b>, phụ đề cứng</span>
+      <span class="fact">Mở: <b>hỏi nỗi lo trước</b></span>
+    </div>
+  </header>
+
+  <section class="two">
+    <div class="card">
+      <h2>Nhân vật</h2>
+      <div class="cast">
+        <img src="img/s03/s03_char.jpg" alt="Chủ xưởng rang cà phê, tạp dề olive, đứng cạnh máy rang">
+        <div>
+          <p><b>Chủ một xưởng rang cà phê nhỏ</b>, bán trên Shopify: đầu 30, tóc ngắn xoăn sẫm, khuyên vàng nhỏ, sơ mi linen màu kem xắn tay, tạp dề vải canvas olive quai da.</p>
+          <ul class="tight" style="margin-top:8px">
+            <li>Vai: người xem nhìn thấy chính mình (chủ shop nhỏ, tự làm mọi việc)</li>
+            <li>Diễn: lo (SC01–02) → tò mò (SC03–05) → tự tin, nhìn thẳng máy (SC07)</li>
+            <li>Dùng đúng một gương mặt cho mọi cảnh (ảnh này làm tham chiếu)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Sản phẩm</h2>
+      <div class="cast">
+        <div class="pair"><img src="img/s03/s03_p0.jpg" alt="Ảnh gốc túi cà phê Promer nền trắng" style="aspect-ratio:1/1"><img src="img/s03/s03_phone.jpg" alt="Ảnh chụp điện thoại túi cà phê trên bếp"></div>
+        <div>
+          <p><b>Túi cà phê PROMER Dark Roast</b>: túi giấy kraft, nhãn đen (nhãn hư cấu, ghi rõ <i>AI-generated · Fictional brand</i>).</p>
+          <ul class="tight" style="margin-top:8px">
+            <li>Ảnh trái: ảnh gốc nền trắng, khoá thiết kế túi cho mọi cảnh</li>
+            <li>Ảnh phải: <b>tấm ảnh duy nhất</b> của chủ shop, chụp điện thoại trên bếp. Đây là đầu vào đưa vào Promer AI Ad Animation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Nhịp nhạc và mốc cắt</h2>
+    <p class="lede" style="margin-bottom:10px">Đo bằng máy trên file HELL FM (lọc dưới 150 Hz, mỗi 10 ms):
+      tempo 120 bpm (mỗi nhịp 0,50 giây, mỗi ô nhịp 2 giây); nhạc dâng ở 8,09 · 16,09 · 24,09 giây. Mọi nhát cắt rơi đúng nhịp. Anh nghe thử xem mood bài có hợp buổi sáng xưởng cà phê không.</p>
+    <div class="tl">
+      <div class="bar">
+        <div class="seg c" style="width:11.9%">SC01</div><div class="seg c" style="width:11.5%">SC02</div><div class="seg c" style="width:7.7%">SC03</div><div class="seg a" style="width:11.5%">Ad 1</div><div class="seg c" style="width:3.8%"></div><div class="seg a" style="width:11.5%">Ad 2</div><div class="seg c" style="width:3.8%"></div><div class="seg a" style="width:11.5%">Ad 3</div><div class="seg u" style="width:11.5%">SC06</div><div class="seg c" style="width:15.3%">SC07</div>
+      </div>
+      <span class="tick" style="left:0.5%">0</span><span class="tick" style="left:11.9%">3,09</span><span class="tick" style="left:23.4%">6,09</span><span class="tick drop" style="left:31.1%">DROP 8,09</span><span class="tick" style="left:42.6%">11,09</span><span class="tick" style="left:58%">15,09</span><span class="tick drop" style="left:61.9%">16,09</span><span class="tick" style="left:73.4%">19,09</span><span class="tick drop" style="left:92.7%">24,09</span>
+    </div>
+    <div class="legend"><span><i style="background:#8a6a4f"></i>Cảnh nhân vật (tạo bằng GodTools)</span><span><i style="background:var(--promer)"></i>Video Promer thật (Ad Animation)</span><span><i style="background:#2c2c34"></i>UI Promer dựng lại trong AE</span></div>
+  </section>
+
+  <section>
+    <h2>Từng cảnh</h2>
+    <p class="lede" style="margin-bottom:12px">Khung nét đứt là vùng an toàn Shorts (x 76–885, y 250–1440). Phụ đề luôn ở cùng một ô ngay trên mép dưới vùng an toàn; chữ nhấn màu tím sáng. Thông số máy dùng để viết prompt cho GodTools và ý tưởng "Add my idea" trong Promer, và để giữ một ngôn ngữ hình cho cả video. 30 fps nên màn trập chuẩn là 1/60 (góc 180°); chỉ đổi khi cần đóng băng hay kéo nhoè chuyển động.</p>
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <article class="shot" id="sc01">
+        <div class="frame"><img src="img/s03/s03_sc01.jpg" alt="Tờ báo đập xuống quầy, tít Black Friday"><span class="who">For Shopify sellers</span><div class="sub"><span>Shopify sellers, <b>Black Friday</b> ads not ready?</span></div><div class="safe"></div><span class="chip">0,00–3,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC01_Hook_Claude</span><span class="name">Tờ báo đập xuống quầy</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Insert (cận vật), góc thấp ngang mặt quầy</dd>
+            <dt>Bố cục</dt><dd>Tít báo nằm 1/3 trên, ảnh túi trên báo ở giữa; đường mép quầy chéo dẫn mắt vào tít</dd>
+            <dt>Tiền cảnh</dt><dd>Miệng ly cà phê bốc khói, nhoè mạnh, mép trái</dd>
+            <dt>Trung cảnh</dt><dd>Tờ báo THE SELLER TIMES, tít "BLACK FRIDAY: YOUR ADS AREN'T READY" (nét)</dd>
+            <dt>Hậu cảnh</dt><dd>Chủ shop đứng sau quầy, khung cắt ngang cằm, nhoè; máy rang đồng phát sáng</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>35mm</span><span>f/2</span><span>1/60</span><span>đứng yên → push-in 4%</span></div></dd>
+            <dt>Ánh sáng</dt><dd>Nắng sớm qua cửa sổ bên trái, ấm (khoảng 3.800K)</dd>
+            <dt>Diễn biến</dt><dd>0,0 báo đập xuống (rung khung 3 khung hình + tiếng giấy) · <b>1,5 ảnh túi trên báo cử động</b> (video Promer chạy trong khung ảnh): trước/sau trong 2 giây đầu</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Shopify sellers, Black Friday ads not ready?"</span><br><span class="vi">Merchant Shopify, quảng cáo Black Friday chưa xong?</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc02">
+        <div class="frame"><img src="img/s03/s03_sc02.jpg" alt="Chủ shop giơ điện thoại có ảnh túi cà phê"><div class="sub"><span>Skip the reshoot. Give <b>one photo</b> three jobs.</span></div><div class="safe"></div><span class="chip">3,09–6,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC02_OnePhoto_Claude</span><span class="name">Tấm ảnh duy nhất</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Cận trung (MCU), ngang tầm mắt</dd>
+            <dt>Bố cục</dt><dd>Chủ shop ở 1/3 phải, điện thoại ở 1/3 trái; khoảng nhìn hướng vào khung</dd>
+            <dt>Tiền cảnh</dt><dd>Màn hình điện thoại: ảnh túi cà phê chụp trên bếp (nét sau khi rack focus)</dd>
+            <dt>Trung cảnh</dt><dd>Gương mặt lo lắng của chủ shop</dd>
+            <dt>Hậu cảnh</dt><dd>Kệ túi cà phê, bao tải đay, cửa sổ, bokeh ấm</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>85mm</span><span>f/1.8</span><span>1/60</span><span>rack focus mặt → điện thoại ở 4,5 giây</span></div></dd>
+            <dt>Ánh sáng</dt><dd>Ánh cửa sổ mềm bên trái, màn hình hắt sáng nhẹ lên tay</dd>
+            <dt>Diễn biến</dt><dd>Hạ tờ báo, giơ điện thoại lên. Chuyển sang SC03: tay hạ điện thoại xuống mặt báo (match cut theo chiều đi xuống)</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Skip the reshoot. Give one photo three jobs."</span><br><span class="vi">Khỏi chụp lại. Giao cho một tấm ảnh ba việc.</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc03">
+        <div class="frame"><img src="img/s03/s03_sc03.jpg" alt="Nhìn từ trên xuống, tay lật trang báo PAGE 2 The Deal"><div class="safe"></div><span class="chip">6,09–8,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC03_Deal_Claude · phần 1</span><span class="name">Lật trang: The Deal</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Nhìn thẳng từ trên xuống (top-down), cận trung</dd>
+            <dt>Bố cục</dt><dd>Tờ báo đặt lệch trái, ly cà phê góc trên phải cân khung; tay vào từ mép dưới</dd>
+            <dt>Tiền cảnh</dt><dd>Hai bàn tay, mép trang đang cong khi lật (nhoè chuyển động nhẹ)</dd>
+            <dt>Trung cảnh</dt><dd>Trang "PAGE 2 · THE DEAL" có ảnh túi và hạt cà phê bung</dd>
+            <dt>Hậu cảnh</dt><dd>Mặt gỗ quầy, hạt rang rải, ly cà phê đen</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>28mm</span><span>f/5.6</span><span>1/60</span><span>push-in nhanh dần vào khung ảnh</span></div></dd>
+            <dt>Diễn biến</dt><dd>Trang lật đúng nhịp 7,09; máy lao vào ảnh trên trang, ảnh phủ kín khung đúng <b>8,09 (drop)</b> = sang Ad 1. Chuyển cảnh: zoom xuyên qua khung ảnh báo</dd>
+            <dt>Lời đọc</dt><dd class="vo">(nhạc dồn lên, không lời)</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot ad" id="ad1">
+        <div class="frame"><img src="img/s03/s03_deal.jpg" alt="Video Promer bản 1: hạt cà phê bung quanh túi"><div class="kicker"><small>PAGE 2</small>THE DEAL</div><div class="sub"><span>Job one: <b>sell the deal.</b></span></div><div class="safe"></div><span class="chip drop">DROP 8,09–11,09</span><span class="tag-ai">minh hoạ</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC03_Deal_Claude · phần 2</span><span class="name">Ad 1 · The Deal</span><span class="pill p">Video Promer thật</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Cận sản phẩm, góc hơi thấp, túi chính giữa</dd>
+            <dt>Bố cục</dt><dd>Túi ở trục giữa, hạt bung toả tròn quanh túi; khoảng trống phía trên cho chữ trang báo</dd>
+            <dt>Tiền cảnh</dt><dd>Vài hạt bay sát ống kính, nhoè</dd>
+            <dt>Trung cảnh</dt><dd>Túi PROMER, nhãn nét</dd>
+            <dt>Hậu cảnh</dt><dd>Nền nâu espresso tối, viền sáng cam phía sau</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>100mm macro</span><span>f/8</span><span>1/1000 đóng băng hạt</span><span>push-in chậm</span></div></dd>
+            <dt>Ý tưởng đưa vào Promer ("Add my idea")</dt><dd><div class="idea">Macro 100mm, f/8, 1/1000 shutter: roasted beans burst outward around the bag in slow motion, orange rim light, slow push-in. Keep the bag shape, black label and PROMER text unchanged. End on the bag centered, beans hanging mid-air.</div></dd>
+            <dt>Chữ AE trên hình</dt><dd>Đầu trang kiểu báo "PAGE 2 · THE DEAL" (serif đậm), không có giá thật trong video Promer</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Job one: sell the deal."</span><br><span class="vi">Việc một: bán cái giá.</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc04">
+        <div class="frame"><img src="img/s03/s03_sc04.jpg" alt="Qua vai chủ shop, trang báo The Deadline, đồng hồ 11:58"><div class="safe"></div><span class="chip">11,09–12,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC04_Deadline_Claude · phần 1</span><span class="name">Qua vai: The Deadline</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Qua vai (OTS), hơi cao</dd>
+            <dt>Bố cục</dt><dd>Vai và tóc chiếm 1/3 trái, trang báo 1/3 phải, đồng hồ góc trên phải</dd>
+            <dt>Tiền cảnh</dt><dd>Vai, tóc xoăn, quai tạp dề (nhoè)</dd>
+            <dt>Trung cảnh</dt><dd>Trang "PAGE 3 · THE DEADLINE" với ảnh túi dưới đèn spot</dd>
+            <dt>Hậu cảnh</dt><dd>Đồng hồ treo tường chỉ 11:58 (mô-típ hạn chót), nhoè vừa đủ đọc</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>50mm</span><span>f/2.8</span><span>1/60</span><span>trượt nhẹ qua vai</span></div></dd>
+            <dt>Ánh sáng</dt><dd>Tối hơn SC03, ấm, tương phản cao: không khí gấp</dd>
+            <dt>Diễn biến</dt><dd>Kim giây nhảy 1 nấc đúng nhịp 11,59; cắt cứng sang Ad 2 ở 12,09</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot ad" id="ad2">
+        <div class="frame"><img src="img/s03/s03_deadline.jpg" alt="Video Promer bản 2: túi dưới đèn spot, hơi nóng bốc lên"><div class="kicker"><small>PAGE 3</small>ENDS MONDAY</div><div class="sub"><span>Job two: <b>sell the deadline.</b></span></div><div class="safe"></div><span class="chip">12,09–15,09</span><span class="tag-ai">minh hoạ</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC04_Deadline_Claude · phần 2</span><span class="name">Ad 2 · The Deadline</span><span class="pill p">Video Promer thật</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Toàn sản phẩm, góc thấp</dd>
+            <dt>Bố cục</dt><dd>Túi 1/3 dưới, cột sáng và hơi nóng kéo mắt lên phần trống phía trên (chỗ đặt chữ ENDS MONDAY)</dd>
+            <dt>Tiền cảnh</dt><dd>Mặt đá đen ướt, ánh hổ phách</dd>
+            <dt>Trung cảnh</dt><dd>Túi PROMER trong vũng sáng</dd>
+            <dt>Hậu cảnh</dt><dd>Phòng tối, hạt bụi trong cột sáng, hơi nóng cuộn</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>50mm</span><span>f/2</span><span>1/60</span><span>push-in chậm từ góc thấp</span></div></dd>
+            <dt>Ý tưởng đưa vào Promer</dt><dd><div class="idea">Dark room, 50mm f/2. A single spotlight clicks on above the bag, thin steam curls rise behind it, slow low-angle push-in. Keep the bag shape, black label and PROMER text unchanged. End on the bag in a pool of light with dark empty space above.</div></dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Job two: sell the deadline."</span><br><span class="vi">Việc hai: bán hạn chót.</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc05">
+        <div class="frame"><img src="img/s03/s03_sc05.jpg" alt="Chủ shop xếp túi cà phê lên kệ gỗ"><div class="safe"></div><span class="chip">15,09–16,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC05_Bundle_Claude · phần 1</span><span class="name">Xếp ba túi lên kệ</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Toàn (wide), máy ngang ngực</dd>
+            <dt>Bố cục</dt><dd>Chủ shop 1/3 trái, hàng túi 1/3 phải; mép kệ dài làm đường dẫn ngang</dd>
+            <dt>Tiền cảnh</dt><dd>Mép bao tải đay bên trái, nhoè (che lộ dần khi máy trượt)</dd>
+            <dt>Trung cảnh</dt><dd>Chủ shop đặt túi thứ ba cạnh hai túi</dd>
+            <dt>Hậu cảnh</dt><dd>Cửa sổ sáng, máy rang đồng, nắng vàng sớm</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>24mm</span><span>f/4</span><span>1/60</span><span>trượt ngang phải (truck)</span></div></dd>
+            <dt>Diễn biến</dt><dd>Túi thứ ba chạm kệ đúng nhịp 16,09 (nhạc dâng lần 2) → <b>match cut</b> sang Ad 3 cùng hàng ba túi, cùng hướng máy</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot ad" id="ad3">
+        <div class="frame"><img src="img/s03/s03_bundle.jpg" alt="Video Promer bản 3: ba túi xếp hàng trên kệ"><div class="kicker"><small>PAGE 4</small>THE BUNDLE</div><div class="sub"><span>Job three: <b>sell the bundle.</b></span></div><div class="safe"></div><span class="chip drop">16,09–19,09</span><span class="tag-ai">minh hoạ</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC05_Bundle_Claude · phần 2</span><span class="name">Ad 3 · The Bundle</span><span class="pill p">Video Promer thật</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Trung sản phẩm, ngang tầm kệ</dd>
+            <dt>Bố cục</dt><dd>Ba túi một hàng, túi giữa nhô lên trước; đối xứng</dd>
+            <dt>Tiền cảnh</dt><dd>Hạt cà phê rải trên mặt kệ</dd>
+            <dt>Trung cảnh</dt><dd>Ba túi PROMER giống hệt nhau</dd>
+            <dt>Hậu cảnh</dt><dd>Tường xưởng, bếp, nhoè</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>24mm</span><span>f/4</span><span>1/60</span><span>trượt phải, cùng hướng SC05</span></div></dd>
+            <dt>Ý tưởng đưa vào Promer</dt><dd><div class="idea">Three identical bags in a row on an oak shelf, 24mm f/4, camera trucks right while morning sunlight sweeps across them. Keep the bag shape, black label and PROMER text unchanged on all three. End on the middle bag slightly forward.</div></dd>
+            <dt>Rủi ro</dt><dd>Promer có thể không giữ đủ 3 túi giống nhau: tạo bản này sau cùng, lỗi thì báo anh trước khi tạo lại</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Job three: sell the bundle."</span><br><span class="vi">Việc ba: bán combo.</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc06">
+        <div class="frame"><img src="img/s03/s03_sc06.jpg" alt="Tay gập tờ báo, mặt sau có ô rao vặt"><div class="ui"><div class="t">Promer AI · Ad Animation</div><div class="r"><img src="img/s03/s03_phone.jpg" alt=""><img src="img/s03/s03_deal.jpg" alt=""><img src="img/s03/s03_deadline.jpg" alt=""><img src="img/s03/s03_bundle.jpg" alt=""></div></div><div class="sub"><span>All three made in <b>Promer AI</b> from that one photo.</span></div><div class="safe"></div><span class="chip">19,09–22,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC06_Classifieds_Claude</span><span class="name">Mặt sau tờ báo: ô rao vặt</span><span class="pill g">GodTools</span><span class="pill p">UI Promer dựng trong AE</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Cận, góc cao 45°</dd>
+            <dt>Bố cục</dt><dd>Tờ báo gập chéo khung; ô rao vặt nằm giữa; ly cà phê góc dưới phải cân khung</dd>
+            <dt>Tiền cảnh</dt><dd>Ly cà phê bốc hơi, nhoè</dd>
+            <dt>Trung cảnh</dt><dd>Mặt sau tờ báo, ô rao vặt là màn kết quả Promer Ad Animation (1 ảnh vào, 3 video ra)</dd>
+            <dt>Hậu cảnh</dt><dd>Tạp dề olive, nhoè</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>50mm</span><span>f/2.8</span><span>1/60</span><span>push-in vào ô rao vặt</span></div></dd>
+            <dt>UI</dt><dd>Dựng lại trong AE theo ảnh app thật (<code>01_Brand/design-system/assets/product-screens/ad-animation/</code>), nền xám sáng, chữ Inter; 3 ô video chạy đúng 3 bản Promer đã tạo. Không có cảnh gõ prompt</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"All three made in Promer AI from that one photo."</span><br><span class="vi">Cả ba làm trong Promer AI từ đúng tấm ảnh đó.</span></dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="shot" id="sc07">
+        <div class="frame"><img src="img/s03/s03_sc07.jpg" alt="Chủ shop giơ tờ báo Reader Poll, nhìn thẳng máy"><div class="poll"><div class="q">Which one runs first?</div><div class="g"><div><img src="img/s03/s03_deal.jpg" alt=""><span>1</span></div><div><img src="img/s03/s03_deadline.jpg" alt=""><span>2</span></div><div><img src="img/s03/s03_bundle.jpg" alt=""><span>3</span></div></div><div class="c">Comment 1, 2 or 3</div><div class="logo">Promer AI</div></div><div class="safe"></div><span class="chip drop">22,09–26,09</span><span class="tag-ai">AI-generated</span></div>
+        <div class="spec">
+          <div class="top"><span class="num">SC07_Outro_Claude</span><span class="name">Reader poll</span><span class="pill g">GodTools</span></div>
+          <dl>
+            <dt>Cỡ cảnh · góc máy</dt><dd>Trung (MS), ngang tầm mắt, nhìn thẳng máy</dd>
+            <dt>Bố cục</dt><dd>Đối xứng chính giữa: lần đầu nhân vật đứng giữa khung, khép chuyện</dd>
+            <dt>Tiền cảnh</dt><dd>Tờ báo gập trang "READER POLL" giơ cạnh mặt</dd>
+            <dt>Trung cảnh</dt><dd>Chủ shop cười nửa miệng, tự tin</dd>
+            <dt>Hậu cảnh</dt><dd>Kệ ba túi PROMER + máy rang, bokeh ấm (nhắc lại Ad 3)</dd>
+            <dt>Máy</dt><dd><div class="cam"><span>35mm</span><span>f/2.8</span><span>1/60</span><span>đứng yên</span></div></dd>
+            <dt>Diễn biến</dt><dd>22,09 giơ báo · <b>24,09 (nhạc dâng lần 3)</b> khung bình chọn bật lên: 3 ảnh nhỏ số 1, 2, 3, logo Promer AI. Related video: video dài Black Friday (L2) khi có</dd>
+            <dt>Lời đọc</dt><dd class="vo"><span class="en">"Which one runs first? Comment 1, 2, or 3."</span><br><span class="vi">Bản nào chạy trước? Bình luận 1, 2 hoặc 3.</span></dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Ngôn ngữ hình cả video</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Phần</th><th>Tiêu cự</th><th>Khẩu độ</th><th>Màn trập</th><th>Vì sao</th></tr>
+      <tr><td>Nhân vật mở (SC01–02)</td><td>35 → 85mm</td><td>f/2 → f/1.8</td><td>1/60</td><td>Từ khung kể chuyện sang cận mặt: đi dần vào nỗi lo; hậu cảnh nhoè để mắt chỉ đọc tít và tấm ảnh</td></tr>
+      <tr><td>Lật trang (SC03–05)</td><td>28 / 50 / 24mm</td><td>f/5.6 / f/2.8 / f/4</td><td>1/60</td><td>Mỗi lần lật một góc máy khác (trên xuống · qua vai · trượt ngang) để 3 việc không lặp hình</td></tr>
+      <tr><td>Video Promer (Ad 1–3)</td><td>100 / 50 / 24mm</td><td>f/8 / f/2 / f/4</td><td>1/1000 · 1/60 · 1/60</td><td>Deal đóng băng hạt (năng lượng) · Deadline tối và chậm (gấp) · Bundle sáng và rộng (nhiều)</td></tr>
+      <tr><td>Kết (SC06–07)</td><td>50 → 35mm</td><td>f/2.8</td><td>1/60</td><td>Lùi ra, nhân vật nhìn thẳng máy: hỏi người xem</td></tr>
+    </table></div>
+    <p class="lede" style="margin-top:8px">Màu: ấm (gỗ, kraft, đồng) cho cảnh nhân vật; video Promer tối và tương phản hơn để nổi lên khi bung khỏi trang báo. Chữ báo dùng serif đậm; chữ Promer dùng Inter. Không camera 3D trong AE: chiều sâu nằm sẵn trong hình (luật dự án).</p>
+  </section>
+
+  <section class="card">
+    <h2>Làm ra hình thế nào</h2>
+    <div class="table-wrap"><table>
+      <tr><th>Phần</th><th>Công cụ</th><th>Ghi chú</th></tr>
+      <tr><td>Khung nhân vật (SC01–07)</td><td>GodTools: Nano Banana 2.1 cho khung đầu, rồi Veo 3.1 hoặc Seedance ảnh → video</td><td>Ảnh trên trang này là khung đầu đã tạo 29/10 (tham chiếu: ảnh nhân vật + ảnh túi). Chữ trên báo dựng lại trong AE cho sắc nét</td></tr>
+      <tr><td>Ad 1–3</td><td>Promer AI Ad Animation, đầu vào là ảnh chụp điện thoại, "Add my idea"</td><td>Ảnh trên trang chỉ minh hoạ; video thật tạo từng bản một, tắt tiếng. Khoảng 48 credit mỗi bản, cần khoảng 144, đang còn 47</td></tr>
+      <tr><td>UI Promer (SC06)</td><td>After Effects</td><td>Đối chiếu ảnh app thật, không quay màn hình</td></tr>
+      <tr><td>Giọng</td><td>ElevenLabs, Emma</td><td>48 chữ, khoảng 14–18 giây</td></tr>
+    </table></div>
+  </section>
+
+  <section class="card">
+    <h2>Cần anh chốt</h2>
+    <ol class="ask">
+      <li><b>Nhân vật:</b> giữ chủ xưởng rang này hay đổi người khác.</li>
+      <li><b>Nhạc HELL FM:</b> anh nghe thử. Bài to ngay từ đầu (khoảng -5 dB), nên giọng phải nổi hơn nhạc ở 6 giây đầu.</li>
+      <li><b>Khung nhân vật cần cử động:</b> tạo video bằng GodTools (Veo 3.1 hay Seedance). Em tạo thử SC01 trước để anh xem.</li>
+      <li><b>Credit Promer</b> cho 3 video quảng cáo (cần khoảng 144, đang còn 47).</li>
+      <li>Bước 2 (2 idea) em gộp vào bản này theo lời anh "lên storyboard"; nếu anh muốn hướng thứ hai để so thì em làm thêm.</li>
+    </ol>
+  </section>
+
+  <footer>Storyboard Shorts 03 · bản 1 · 29/10/2026. Ảnh tạo bằng GodTools (Nano Banana 2.1), nhãn PROMER hư cấu. Ảnh trong khung tím là minh hoạ cho video Promer sẽ tạo. Bản gốc độ phân giải đầy đủ: <code>07_File Ae Video/assets/claude/shorts03/storyboard/</code>.</footer>
+</div>
+</body>
+</html>
