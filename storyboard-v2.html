@@ -216,4 +216,42 @@ a{color:#8fb8ff}</style></head><body><div class="wrap">
   <p class="fix"><b>Sửa theo feedback:</b> Lồng BFCM theo feedback: giữ hình hoa nở, góc quà tặng Black Friday.</p>
 </section>
 <p class="fix"><b>Ghi chú:</b> chỉ Shorts 02 dùng hình output Promer thật (khung trích từ video A1–A3) và ảnh "trước" thật. Các video khác dùng ảnh template thư viện Promer (có logo thương hiệu thật) để hình dung; bản làm thật là sản phẩm nhãn Promer, 3 bản video tạo trong Promer AI. Nhịp các video ngoài 02 là giả định (drop 7,0 giây), chọn nhạc xong đo lại.</p>
-</div></body></html>
+</div><script id="chi-mot-video">
+/* Mo bang #<id video> thi chi hien video do (anh dan 31/10/2026). */
+(function () {
+  var MAP = {"s02": "s02", "s03": "s03", "s04": "s04", "s05": "s05", "s06": "s06", "s07": "s07", "s08": "s08-bloom"};
+  function run() {
+    var h = decodeURIComponent(location.hash.slice(1));
+    var on = Object.prototype.hasOwnProperty.call(MAP, h);
+    Object.keys(MAP).forEach(function (k) {
+      var e = document.getElementById(k);
+      if (e) e.style.display = on && k !== h ? 'none' : '';
+    });
+    var wrap = document.querySelector('.wrap') || document.body;
+    var bar = document.getElementById('chi-mot-bar');
+    var sec0 = on ? document.getElementById(h) : null;
+    for (var i = 0; i < wrap.children.length; i++) {
+      var c = wrap.children[i];
+      if (c.id === 'chi-mot-bar' || c.tagName === 'SCRIPT') continue;
+      c.style.display = on && !c.contains(sec0) ? 'none' : '';
+    }
+    if (!on) { if (bar) bar.remove(); return; }
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'chi-mot-bar';
+      bar.style.cssText = 'margin:0 0 20px;display:flex;flex-direction:column;gap:6px;font-family:Inter,system-ui,sans-serif';
+      wrap.insertBefore(bar, wrap.firstChild);
+    }
+    var sec = document.getElementById(h);
+    var t = sec.querySelector('h2,h3');
+    bar.innerHTML = '<a href="index.html#v-' + MAP[h] + '" style="color:#7B3FE4;font-weight:600;font-size:14px;text-decoration:none">← Về trang của video này</a>'
+      + '<div style="font-size:13px;font-weight:700;letter-spacing:.06em;color:#6E758F">STORYBOARD</div>';
+    document.title = 'Storyboard · ' + (t ? t.textContent.trim().slice(0, 60) : h);
+    window.scrollTo(0, 0);
+  }
+  addEventListener('hashchange', run);
+  addEventListener('load', function () { if (document.getElementById('chi-mot-bar')) window.scrollTo(0, 0); });
+  run();
+})();
+</script>
+</body></html>
