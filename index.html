@@ -36,6 +36,7 @@ h2{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.01em}
 .tile .art img:nth-child(2){height:92%;z-index:1}
 .tile.long .art{background:var(--grad)}
 .tile .wide-mock{width:78%;aspect-ratio:16/9;border-radius:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px;letter-spacing:.02em}
+.tile .art img.wide{height:auto;width:86%;aspect-ratio:16/9;object-fit:cover;object-position:left top;border-radius:12px}
 .tile .txt{padding:18px 20px 20px;display:flex;flex-direction:column;gap:4px}
 .tile .txt b{font-size:22px}
 .tile .txt span{color:var(--ink-2);font-size:14px}
@@ -115,7 +116,7 @@ function home() {
   <p class="sub">Chọn loại video để xem danh sách. Bấm vào từng video để xem nội dung, rồi bấm "Xem storyboard" để xem cách làm.</p>
   <div class="tiles">
     <a class="tile" href="#shorts"><div class="art">${pics}</div><div class="txt"><b>Shorts</b><span>Video dọc 20 đến 30 giây</span><span class="count">${shorts.length} video</span></div></a>
-    <a class="tile long" href="#long"><div class="art"><div class="wide-mock">Video dài</div></div><div class="txt"><b>Video dài</b><span>Video ngang, từ 8 phút 30 giây</span><span class="count">${longs.length} video</span></div></a>
+    <a class="tile long" href="#long"><div class="art"><img class="wide" src="img/ads-evox/ui_result.jpg" alt="Màn hình app Promer đang tạo 3 video quảng cáo"></div><div class="txt"><b>Video dài</b><span>Video ngang, từ 8 phút 30 giây</span><span class="count">${longs.length} video</span></div></a>
   </div>${foot}`;
 }
 
