@@ -1,0 +1,484 @@
+<title>Promer Ads Storyboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: kịch bản phim dọc. Mỗi cảnh một hàng: khung 9:16 bên trái, ghi chú sản xuất bên phải, ảnh mẫu EvoX làm nguồn. */
+:root{
+  --bg:#F6F5FA; --paper:#FFFFFF; --ink:#0B0B12; --ink-2:#4E4E5A; --ink-3:#8A8A96; --line:#E4E4EA;
+  --violet:#6D5DF6; --pink:#EC4899; --coral:#F0522F; --warn:#B4520E; --warn-bg:#FFF1E2;
+  --grad:linear-gradient(97deg,#5B4BF0 0%,#A63BE8 46%,#EC4899 100%);
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"DM Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E0D14; --paper:#17161F; --ink:#F2F1F8; --ink-2:#B9B8C6; --ink-3:#7E7D8C; --line:#2A2935;
+  --violet:#8B7DF9; --pink:#F472B6; --coral:#FF7A57; --warn:#FFB872; --warn-bg:#2C1E10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E0D14; --paper:#17161F; --ink:#F2F1F8; --ink-2:#B9B8C6; --ink-3:#7E7D8C; --line:#2A2935;
+  --violet:#8B7DF9; --pink:#F472B6; --coral:#FF7A57; --warn:#FFB872; --warn-bg:#2C1E10; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:900;letter-spacing:-.02em}
+h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.lead{color:var(--ink-2);max-width:68ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink-2)}
+.chip.warn{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+nav.toc{display:flex;gap:10px;flex-wrap:wrap}
+nav.toc a{text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:10px 14px;border-radius:12px;font-weight:600;font-size:14px}
+nav.toc a:focus-visible,nav.toc a:hover{border-color:var(--violet)}
+section.video{display:flex;flex-direction:column;gap:18px;padding-top:12px;border-top:1px solid var(--line)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.flow div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.flow b{display:block;font-size:13px}
+.flow span{font-size:12.5px;color:var(--ink-2)}
+/* thanh thời gian */
+.tl{display:flex;height:34px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.tl a{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#fff;text-decoration:none;min-width:0;overflow:hidden;white-space:nowrap;border-right:1px solid rgba(255,255,255,.25)}
+.tl-legend{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:-12px}
+/* cảnh */
+.scene{display:grid;grid-template-columns:200px minmax(0,1fr);gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;scroll-margin-top:16px}
+.scene h3{font-size:19px;font-weight:800}
+.scene .time{font-family:var(--mono);font-size:12px;color:var(--violet);font-variant-numeric:tabular-nums}
+.notes{display:flex;flex-direction:column;gap:12px;min-width:0}
+.vo{font-size:18px;font-weight:600;line-height:1.35;margin:0}
+.vo::before{content:"Emma: ";font-family:var(--mono);font-size:12px;font-weight:400;color:var(--ink-3);vertical-align:2px}
+dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:6px 14px;margin:0;font-size:14px}
+dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);padding-top:2px}
+dd{margin:0;color:var(--ink-2)}
+dd strong{color:var(--ink)}
+.src{display:flex;gap:12px;align-items:center;background:var(--bg);border-radius:12px;padding:8px;min-width:0}
+.src img{width:132px;max-width:40%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;flex:none}
+.src p{margin:0;font-size:13px;color:var(--ink-2);min-width:0}
+.src p b{color:var(--ink)}
+.src.pin{background:color-mix(in srgb,#E60023 7%,var(--bg))}
+.src.pin img{aspect-ratio:auto;max-height:150px;object-fit:contain;background:#000}
+/* khung 9:16 */
+.frame{position:relative;width:200px;max-width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#111;color:#fff;font-family:var(--sans);isolation:isolate}
+.frame .safe{position:absolute;left:7%;right:18%;top:13%;bottom:25%;border:1px dashed rgba(255,255,255,.28);border-radius:4px;pointer-events:none;z-index:9}
+.frame .sub{position:absolute;left:14%;right:18%;top:71.5%;text-align:center;font-size:8.5px;font-weight:600;background:rgba(10,10,18,.72);border-radius:20px;padding:3px 6px;z-index:8}
+.frame .sub em{font-style:normal;color:#C8B4FF;font-weight:800}
+.frame .tag{position:absolute;right:6px;top:6px;font-family:var(--mono);font-size:8px;background:rgba(0,0,0,.5);padding:2px 5px;border-radius:5px;z-index:9}
+.warm{background:radial-gradient(120% 70% at 72% 38%,#E7A45A 0%,#7A4220 34%,#1C120C 70%,#0A0705 100%)}
+.desk{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(#2A1A10,#0B0705)}
+.person{position:absolute;left:30%;width:40%;top:30%;height:44%;border-radius:45% 45% 20% 20%;background:radial-gradient(60% 40% at 50% 22%,#3A2618 0 52%,transparent 53%),linear-gradient(#24170F,#120B07)}
+.monitor{position:absolute;left:14%;right:14%;bottom:30%;height:14%;background:#0C1220;border:2px solid #222;border-radius:4px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:3px}
+.monitor i{background:linear-gradient(135deg,#C9A38A,#7E5A49);border-radius:1px}
+.hook{position:absolute;left:7%;right:7%;top:15%;z-index:7;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.hook b{font-size:22px;font-weight:900;line-height:.95;letter-spacing:-.02em;text-transform:uppercase}
+.hook b.blk{background:var(--grad);padding:3px 6px;border-radius:4px}
+.dim-top{position:absolute;inset:0 0 50% 0;background:linear-gradient(rgba(0,0,0,.72),transparent);z-index:5}
+.glass{position:absolute;z-index:6;background:rgba(255,255,255,.14);backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 6px;font-size:7.5px;line-height:1.2;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.glass b{display:block;font-size:8.5px}
+.eyes{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 48%,#8A5A3C 0%,#3A2416 60%,#120A06 100%)}
+.lens{position:absolute;top:36%;width:38%;height:22%;border:3px solid #C7C2BA;border-radius:46%;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(150,190,255,.15));overflow:hidden}
+.lens::after{content:"";position:absolute;inset:18% 12%;background:repeating-linear-gradient(0deg,rgba(255,255,255,.55) 0 2px,transparent 2px 6px);opacity:.6}
+.dark{background:radial-gradient(80% 50% at 50% 45%,#1E1A33 0%,#07060C 70%)}
+.particles{position:absolute;inset:0;background:radial-gradient(circle,#B9A8FF 0 1px,transparent 1.6px) 0 0/14px 14px,radial-gradient(circle,#F59AD0 0 1px,transparent 1.6px) 7px 9px/19px 17px;opacity:.55;mask:radial-gradient(60% 40% at 50% 46%,#000 30%,transparent 75%)}
+.logo{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:68%;filter:invert(1) brightness(2);z-index:6}
+.lightweb{background:linear-gradient(160deg,#ECEDF2 0%,#E2E3E9 55%,#D9DAE3 100%)}
+.lightweb::before{content:"";position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.85) 50%,transparent 60%);z-index:1}
+.ui{position:absolute;left:6%;right:6%;border-radius:10px;background-size:cover;box-shadow:0 10px 30px rgba(20,20,40,.25);z-index:3}
+.cursor{position:absolute;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid #fff;filter:drop-shadow(0 1px 2px #000);transform:rotate(-28deg);z-index:8}
+.genbtn{position:absolute;left:18%;right:18%;height:7%;border-radius:20px;background:#1B2034;color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:7;box-shadow:0 0 0 2px #fff,0 0 0 4px #A63BE8,0 0 18px #EC4899}
+.out{position:absolute;inset:0;background:url(img/ads-evox/ui_result.jpg) 6% 30%/260% auto no-repeat}
+.counter{position:absolute;left:50%;transform:translateX(-50%);top:16%;background:#fff;color:#1B2034;font-weight:800;font-size:9px;padding:3px 9px;border-radius:20px;z-index:7}
+.phone{position:absolute;left:24%;right:24%;top:20%;bottom:22%;border-radius:16px;border:3px solid #1A1A22;background:url(img/ads-evox/ui_result.jpg) 6% 30%/520% auto no-repeat;box-shadow:0 14px 30px rgba(0,0,0,.5);z-index:5}
+.cta{position:absolute;left:14%;right:24%;top:62%;height:7%;border-radius:30px;background:#fff;color:#1B2034;font-size:8.5px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #A63BE8,0 0 16px rgba(236,72,153,.6);z-index:7}
+.grid-cards{position:absolute;inset:8% 4% 30%;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;z-index:2;opacity:.85}
+.grid-cards i{aspect-ratio:9/16;border-radius:3px;background:linear-gradient(135deg,#C99C84,#6B4A3D)}
+.grid-cards i:nth-child(3n){background:linear-gradient(135deg,#B5B8E8,#5B4BF0)}
+.grid-cards i:nth-child(4n){background:linear-gradient(135deg,#F7C6DC,#EC4899)}
+.browser{position:absolute;left:5%;right:5%;top:20%;height:44%;border-radius:8px;background:#F4F4F7;overflow:hidden;z-index:3;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.browser .bar{height:12%;background:#DADBE2;display:flex;align-items:center;gap:3px;padding:0 5px}
+.browser .bar i{width:5px;height:5px;border-radius:50%;background:#fff}
+.browser .bar .pext{margin-left:auto;width:11px;height:11px;border-radius:3px;background:var(--grad);box-shadow:0 0 8px #EC4899}
+.adcard{position:absolute;left:8%;top:18%;width:40%;bottom:8%;border-radius:4px;background:linear-gradient(160deg,#F2D7C2,#A26B4E)}
+.panel{position:absolute;right:4%;top:16%;width:42%;bottom:6%;border-radius:5px;background:#fff;border:1px solid #E4E4EA;padding:4px;display:flex;flex-direction:column;gap:3px;color:#1B2034;font-size:6.5px}
+.panel b{font-size:6.5px;color:#6D5DF6}
+.panel i{display:block;height:4px;border-radius:2px;background:#E4E4EA}
+.value{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.value div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+.value h4{margin:0 0 6px;font-size:14px}
+.score{font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:99px;margin-left:6px}
+.s-kha{background:#E4F6EE;color:#0F7A4F}.s-yeu{background:var(--warn-bg);color:var(--warn)}
+.value p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.callout{background:var(--warn-bg);color:var(--warn);border-radius:14px;padding:14px 16px;font-size:14px}
+.callout b{color:inherit}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.refs figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}
+.refs img{width:100%;border-radius:8px;display:block}
+.refs figcaption{font-size:12.5px;color:var(--ink-2);padding-top:6px}
+footer{font-size:12.5px;color:var(--ink-3)}
+@media (max-width:620px){
+  .scene{grid-template-columns:1fr}
+  .frame{width:180px;margin:0 auto}
+  dl{grid-template-columns:1fr;gap:2px}
+  dt{padding-top:8px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+<header style="display:flex;flex-direction:column;gap:12px">
+  <a href="index.html#quang-cao" style="font-size:13px;color:var(--violet);text-decoration:none">← Về trang plan tổng</a>
+  <div class="eyebrow">Promer · Storyboard quảng cáo Shorts · bản 1 · 31/10/2026</div>
+  <h1>Hai quảng cáo Promer <span class="g">dựng theo khung EvoX</span></h1>
+  <p class="lead">Mỗi video dài khoảng 25 giây, khung dọc 1080×1920, giọng Emma. Đi theo 5 hồi của video mẫu EvoX anh gửi: người thật gặp nỗi đau, sản phẩm lộ diện, demo giao diện, ra kết quả, kết bằng một câu ý nghĩa. Các cảnh nối nhau bằng vật, không cắt khô. Mỗi cảnh ghi rõ lấy ý từ giây nào của EvoX và pin Pinterest nào.</p>
+  <div class="meta">
+    <span class="chip">9:16 · 1080×1920</span><span class="chip">~25 giây</span><span class="chip">Giọng Emma</span><span class="chip">Không cảnh gõ prompt</span><span class="chip">Hook ≤ 2 giây, chữ to</span><span class="chip warn">Chờ anh duyệt bước 3</span>
+  </div>
+  <nav class="toc" aria-label="Chọn video">
+    <a href="#video-a">Video A · Promer app (Ad Animation)</a>
+    <a href="#video-b">Video B · Promer extension trên Chrome (bản nháp)</a>
+    <a href="#nguon">Nguồn ý tưởng</a>
+  </nav>
+</header>
+
+<!-- ================= VIDEO A ================= -->
+<section class="video" id="video-a">
+  <div class="eyebrow">Video A · 26 giây · 9 cảnh</div>
+  <h2>"All photos. No video ads."</h2>
+  <p class="lead">Chủ shop chỉ có ảnh sản phẩm, muốn có video ad để test. Promer biến một ảnh thành 3 video ad: thêm ảnh, tick ý tưởng Promer gợi ý, bấm Generate. Tính năng dùng: <b>Ad Animation</b> (giao diện thật "Choose ad script idea").</p>
+
+  <div class="flow">
+    <div><b>Nỗi đau</b><span>Chỉ có ảnh, quay video thì tốn tiền và chờ lâu</span></div>
+    <div><b>Lộ diện</b><span>Các thẻ chi phí vỡ thành hạt, ghép thành logo Promer</span></div>
+    <div><b>Demo</b><span>Thêm ảnh → tick 3 ý tưởng → Generate</span></div>
+    <div><b>Kết quả</b><span>3 video ad thật, mỗi bản chạy 2 giây</span></div>
+    <div><b>Ý nghĩa</b><span>"Make people want what you sell." + promer.ai</span></div>
+  </div>
+
+  <div class="tl" aria-label="Thời lượng các cảnh video A">
+    <a href="#a1" style="flex:2.0;background:#7A4220">A1</a>
+    <a href="#a2" style="flex:3.0;background:#5E3A24">A2</a>
+    <a href="#a3" style="flex:1.6;background:#3A2416">A3</a>
+    <a href="#a4" style="flex:1.6;background:#2B2450">A4</a>
+    <a href="#a5" style="flex:2.4;background:#5B4BF0">A5</a>
+    <a href="#a6" style="flex:5.0;background:#6D5DF6">A6</a>
+    <a href="#a7" style="flex:6.0;background:#A63BE8">A7</a>
+    <a href="#a8" style="flex:1.4;background:#C13AD6">A8</a>
+    <a href="#a9" style="flex:3.0;background:#EC4899">A9</a>
+  </div>
+  <div class="tl-legend"><span>0 s</span><span>13 s</span><span>26 s</span></div>
+
+  <!-- A1 -->
+  <article class="scene" id="a1">
+    <div class="frame warm"><div class="person"></div><div class="desk"></div>
+      <div class="monitor"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="dim-top"></div>
+      <div class="hook"><b>All photos.</b><b class="blk">No video ads.</b></div>
+      <div class="safe"></div><span class="tag">A1</span></div>
+    <div class="notes">
+      <div class="time">0,0 – 2,0 s · HOOK</div>
+      <h3>Người bán đêm khuya, màn hình toàn ảnh tĩnh</h3>
+      <p class="vo">"Got product photos, but no video ads?"</p>
+      <dl>
+        <dt>Hình</dt><dd>Clip AI: chủ shop ngồi bàn, đèn bàn ấm, máy góc thấp từ bàn phím đẩy chậm vào. Màn hình trước mặt là lưới 8 ảnh sản phẩm tĩnh.</dd>
+        <dt>Chữ trên hình</dt><dd><strong>ALL PHOTOS.</strong> / <strong>NO VIDEO ADS.</strong> (dòng 2 trên khối màu Promer). Vào hết trong 0,8 giây: chữ đập 160 → 100%, rung khung nhẹ. Nửa trên làm tối cho chữ nổi. Không hiện phụ đề trùng câu này.</dd>
+        <dt>Âm thanh</dt><dd>Một tiếng impact đúng lúc khối màu quét vào, nhạc nền bắt đầu thấp.</dd>
+        <dt>Nối sang A2</dt><dd>Một ảnh trên màn hình bật sáng (ảnh này sẽ bay vào app ở cảnh A6).</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_1.0.jpg" alt="EvoX giây 1: người gõ phím, ánh đèn ấm"><p><b>Lấy từ EvoX 0–2 giây:</b> người thật, ánh ấm, góc thấp từ bàn phím. <b>Đổi:</b> EvoX 2 giây đầu không có chữ; mình đặt tít to ngay khung đầu (luật hook ≤ 2 giây).</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_tit_to.jpg" alt=""><p><b>Pinterest (tìm "ai app ad"):</b> Tít 2 dòng chữ rất to trên nền tối, dòng 2 đổi màu. Lấy cách đặt chữ cho hook A1.</p></div>
+    </div>
+  </article>
+
+  <!-- A2 -->
+  <article class="scene" id="a2">
+    <div class="frame warm"><div class="person"></div><div class="desk"></div>
+      <div class="glass" style="left:6%;top:18%;transform:rotate(-6deg)"><b>Studio shoot</b>$2,400 · 1 day</div>
+      <div class="glass" style="right:20%;top:26%;transform:rotate(5deg)"><b>Creator quote</b>14 days wait</div>
+      <div class="glass" style="left:10%;top:42%;transform:rotate(3deg)"><b>Test plan</b>Need 5 versions</div>
+      <div class="glass" style="right:22%;top:50%;transform:rotate(-4deg)"><b>edit_v3_FINAL.mp4</b>rendering…</div>
+      <div class="sub">Shoots cost <em>thousands.</em></div>
+      <div class="safe"></div><span class="tag">A2</span></div>
+    <div class="notes">
+      <div class="time">2,0 – 5,0 s · NỖI ĐAU</div>
+      <h3>Thẻ chi phí bay ra, chồng chất quanh người</h3>
+      <p class="vo">"Shoots cost thousands. Creators take weeks."</p>
+      <dl>
+        <dt>Hình</dt><dd>Từ màn hình bật ra 4 thẻ kính trong suốt, mỗi thẻ đúng một phách nhạc: <strong>Studio shoot $2,400</strong> · <strong>Creator quote 14 days</strong> · <strong>Need 5 versions to test</strong> · <strong>edit_v3_FINAL.mp4</strong>. Thẻ trôi chậm, che dần mặt người.</dd>
+        <dt>Phụ đề</dt><dd>Ô cố định (tâm 518, 1402). Chữ nhấn tím: <em>thousands</em>, <em>weeks</em>.</dd>
+        <dt>Âm thanh</dt><dd>4 tiếng "pop" kính theo phách.</dd>
+        <dt>Nối sang A3</dt><dd>Máy đẩy mạnh vào mắt người qua khe giữa các thẻ.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_3.5.jpg" alt="EvoX giây 3,5: cửa sổ app chồng chất quanh người"><p><b>Lấy từ EvoX 2–4,5 giây:</b> cửa sổ trong suốt chồng chất ("tasks keep piling up"). <b>Đổi:</b> cửa sổ app văn phòng thành thẻ chi phí thật của người bán. Con số trên thẻ là ví dụ minh hoạ, chưa có nguồn, cần anh chốt.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_nguoi_the_noi.jpg" alt=""><p><b>Pinterest (tìm "ai app ad"):</b> Người thật ngồi laptop, thẻ giao diện nổi quanh người. Lấy cho thẻ chi phí bay quanh người bán.</p></div>
+    </div>
+  </article>
+
+  <!-- A3 -->
+  <article class="scene" id="a3">
+    <div class="frame"><div class="eyes"></div>
+      <div class="lens" style="left:8%"></div><div class="lens" style="right:8%"></div>
+      <div class="sub">And every test needs a <em>new video.</em></div>
+      <div class="safe"></div><span class="tag">A3</span></div>
+    <div class="notes">
+      <div class="time">5,0 – 6,6 s · ĐẨY LÊN</div>
+      <h3>Cận mắt, kính phản chiếu đống thẻ</h3>
+      <p class="vo">"And every test needs a new video."</p>
+      <dl>
+        <dt>Hình</dt><dd>Clip AI cận mắt cùng nhân vật (khoá mặt bằng character sheet). Hai mắt kính phản chiếu các thẻ chi phí, thẻ nhiễu glitch nhẹ ở cuối.</dd>
+        <dt>Âm thanh</dt><dd>Nhạc nén lại, tiếng riser bắt đầu.</dd>
+        <dt>Nối sang A4</dt><dd>Các thẻ trong mắt kính vỡ thành hạt sáng.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_5.0.jpg" alt="EvoX giây 5: cận mắt kính phản chiếu cửa sổ"><p><b>Lấy từ EvoX 4,5–6 giây:</b> cận kính phản chiếu cửa sổ, đúng nhịp "you need more than an AI". <b>Giữ nguyên ý</b>, đổi nội dung phản chiếu.</p></div>
+    </div>
+  </article>
+
+  <!-- A4 -->
+  <article class="scene" id="a4">
+    <div class="frame dark"><div class="particles"></div><img class="logo" src="img/ads-evox/logo.svg" alt="Logo Promer">
+      <div class="sub"><em>Meet Promer.</em></div>
+      <div class="safe"></div><span class="tag">A4</span></div>
+    <div class="notes">
+      <div class="time">6,6 – 8,2 s · LỘ DIỆN</div>
+      <h3>Hạt sáng xoáy lại thành logo</h3>
+      <p class="vo">"Meet Promer."</p>
+      <dl>
+        <dt>Hình</dt><dd>Hạt sáng tím → hồng (màu gradient thương hiệu) xoáy về giữa, ghép thành biểu tượng ngôi sao rồi chữ Promer. Logo giữ đúng file chính thức, không đổi hình (luật logo 20/10).</dd>
+        <dt>Âm thanh</dt><dd>Riser chạm đỉnh, tiếng chime khi logo hiện đủ.</dd>
+        <dt>Nối sang A5</dt><dd>Logo nhích lên trên, một khung app sáng trượt lên từ dưới.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_6.5.jpg" alt="EvoX giây 6,5: hạt bụi ghép thành logo"><p><b>Lấy từ EvoX 6–7 giây:</b> hạt bụi nổ ra rồi ghép thành logo, câu "Meet EvoX". <b>Đổi:</b> hạt bụi xám thành hạt màu gradient Promer.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_hat_chu.jpg" alt=""><p><b>Pinterest (tìm "logo reveal particles"):</b> Hạt sáng tụ lại thành nét chữ. Lấy cho cảnh hạt ghép thành logo.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_hat_cau.jpg" alt=""><p><b>Pinterest (tìm "logo reveal particles"):</b> Khối hạt tím xoáy tròn, đúng tông thương hiệu.</p></div>
+    </div>
+  </article>
+
+  <!-- A5 -->
+  <article class="scene" id="a5">
+    <div class="frame lightweb"><img class="logo" src="img/ads-evox/logo.svg" alt="" style="top:26%;filter:none;width:56%">
+      <div class="ui" style="top:40%;bottom:8%;background-image:url(img/ads-evox/ui_choose.jpg);background-position:0 0;background-size:250% auto;opacity:.55"></div>
+      <div class="sub">It turns <em>one photo</em> into video ads.</div>
+      <div class="safe"></div><span class="tag">A5</span></div>
+    <div class="notes">
+      <div class="time">8,2 – 10,6 s · LỜI HỨA</div>
+      <h3>Logo trên app Promer còn mờ</h3>
+      <p class="vo">"It turns one photo into video ads."</p>
+      <dl>
+        <dt>Hình</dt><dd>Nền chuyển từ tối sang nền xám sáng của web Promer (#E2E3E9, vệt sáng trắng quét chéo). Bên dưới logo là cột trái của app Ad Animation, đang mờ 55%.</dd>
+        <dt>Nối sang A6</dt><dd>Máy đẩy vào cột trái, app rõ dần lên 100%.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_8.5.jpg" alt="EvoX giây 8,5: logo trên cửa sổ app mờ"><p><b>Lấy từ EvoX 7–10 giây:</b> logo nằm trên cửa sổ app mờ, câu hứa ngắn. <b>Đổi:</b> EvoX dùng nền tối, mình dùng nền sáng vì app và web Promer là giao diện sáng.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_ui_gradient.jpg" alt=""><p><b>Pinterest (tìm "saas product video"):</b> Giao diện sáng nổi trên nền gradient tím: cách đặt app Promer sau logo.</p></div>
+    </div>
+  </article>
+
+  <!-- A6 -->
+  <article class="scene" id="a6">
+    <div class="frame lightweb">
+      <div class="ui" style="top:14%;bottom:20%;background-image:url(img/ads-evox/ui_choose.jpg);background-position:0 0;background-size:260% auto"></div>
+      <div class="cursor" style="left:22%;top:50%"></div>
+      <div class="genbtn" style="top:66%">Generate 3 videos</div>
+      <div class="sub">Tick the <em>ideas</em> it suggests.</div>
+      <div class="safe"></div><span class="tag">A6</span></div>
+    <div class="notes">
+      <div class="time">10,6 – 15,6 s · DEMO</div>
+      <h3>Thêm ảnh → tick 3 ý tưởng → Generate</h3>
+      <p class="vo">"Add your photo. Tick the ideas it suggests. Generate."</p>
+      <dl>
+        <dt>Hình</dt><dd>UI Promer dựng lại trong AE, đúng ảnh chụp app thật. Ba nhịp:<br>1) Ảnh sáng ở cảnh A1 bay vào ô ảnh (vật nối xuyên video).<br>2) Danh sách <strong>Choose ad script idea</strong>, con trỏ to tick 3 ý: Product showcase · Premium products · Before/after.<br>3) Nút <strong>Generate 3 videos</strong> có viền chạy màu tím hồng, bấm.</dd>
+        <dt>Không có</dt><dd>Cảnh gõ prompt (luật 29/10).</dd>
+        <dt>Phụ đề</dt><dd>Mỗi nhịp một câu, chữ nhấn: <em>photo</em>, <em>ideas</em>, <em>Generate</em>.</dd>
+        <dt>Âm thanh</dt><dd>Whoosh khi ảnh bay vào, 3 tiếng tick, click nút.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_15.5.jpg" alt="EvoX giây 15,5: thẻ file bay vào khung chat"><p><b>Lấy từ EvoX 10–20 giây:</b> máy đẩy vào UI, con trỏ to, thẻ file bay vào, mỗi bước một câu 4–6 chữ. <b>Đổi:</b> bỏ bước gõ yêu cầu, thay bằng tick ý tưởng Promer gợi ý. Gọn từ 10 giây xuống 5 giây.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_nut_sang.jpg" alt=""><p><b>Pinterest (tìm "ui motion design"):</b> Nút tím phát quầng sáng, nổi trên các dòng lựa chọn. Lấy cho nút Generate.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_thanh_sang.jpg" alt=""><p><b>Pinterest (tìm "ui motion design"):</b> Viền sáng chạy quanh khung: hợp với viền chạy màu sẵn có của Promer.</p></div>
+    </div>
+  </article>
+
+  <!-- A7 -->
+  <article class="scene" id="a7">
+    <div class="frame"><div class="out"></div><div class="counter">AD 1 / 3 · Product showcase</div>
+      <div class="sub"><em>Three ads,</em> ready to test.</div>
+      <div class="safe"></div><span class="tag">A7</span></div>
+    <div class="notes">
+      <div class="time">15,6 – 21,6 s · KẾT QUẢ</div>
+      <h3>3 video ad thật, mỗi bản chiếm trọn màn hình 2 giây</h3>
+      <p class="vo">"Three ads, ready to test."</p>
+      <dl>
+        <dt>Hình</dt><dd>Ba thẻ kết quả trượt vào như trong app (màn "Generated ad animations"), rồi từng thẻ phóng ra toàn màn hình. Mỗi bản ghi tên ý tưởng trên viên trắng: <strong>AD 1/3 · Product showcase</strong>, <strong>AD 2/3 · Premium look</strong>, <strong>AD 3/3 · Before/after</strong>.</dd>
+        <dt>Bắt buộc</dt><dd>Ba video là output Promer thật, tạo từng cái một, tắt tiếng (48 credit mỗi video, 144 credit cho 3 bản). Sản phẩm: một món duy nhất từ A1 tới A9, anh chọn.</dd>
+        <dt>Âm thanh</dt><dd>Drop nhạc đúng lúc AD 1 bung ra; mỗi lần đổi bản một tiếng whoosh.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_21.5.jpg" alt="EvoX giây 21,5: tài liệu kết quả tự viết ra"><p><b>Lấy từ EvoX 20–23 giây:</b> kết quả là một vật cụ thể, có tên. <b>Đổi:</b> file .docx thành 3 video ad, ghi tên ý tưởng để người xem học được 3 góc làm ad.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_phone_bay.jpg" alt=""><p><b>Pinterest (tìm "product launch video"):</b> Sản phẩm bay ra quanh điện thoại: cách cho 3 ad bung ra khỏi app.</p></div>
+    </div>
+  </article>
+
+  <!-- A8 -->
+  <article class="scene" id="a8">
+    <div class="frame dark"><div class="phone"></div>
+      <div class="sub"><em>Post them</em> today.</div>
+      <div class="safe"></div><span class="tag">A8</span></div>
+    <div class="notes">
+      <div class="time">21,6 – 23,0 s · MANG ĐI</div>
+      <h3>Ad thu vào điện thoại, đang chạy trong feed</h3>
+      <p class="vo">"Post them today."</p>
+      <dl>
+        <dt>Hình</dt><dd>AD 3 thu nhỏ vào màn hình điện thoại (feed kiểu Reels, không dùng logo nền tảng thật). Người xem thấy ad đã "lên sóng".</dd>
+        <dt>Nối sang A9</dt><dd>Máy kéo lùi xa khỏi điện thoại.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_23.5.jpg" alt="EvoX giây 23,5: điện thoại báo kế hoạch đã xong"><p><b>Lấy từ EvoX 23–24,5 giây:</b> kết quả hiện trên điện thoại, cảm giác "xong việc thật".</p></div>
+    </div>
+  </article>
+
+  <!-- A9 -->
+  <article class="scene" id="a9">
+    <div class="frame lightweb"><div class="grid-cards"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <img class="logo" src="img/ads-evox/logo.svg" alt="" style="top:52%;filter:none;width:58%">
+      <div class="cta">Make yours at promer.ai</div>
+      <div class="safe"></div><span class="tag">A9</span></div>
+    <div class="notes">
+      <div class="time">23,0 – 26,0 s · Ý NGHĨA + CTA</div>
+      <h3>Hàng trăm ad hội về thành logo</h3>
+      <p class="vo">"Promer. Make people want what you sell."</p>
+      <dl>
+        <dt>Hình</dt><dd>Kéo lùi thấy điện thoại chỉ là một ô trong lưới hàng trăm ad đủ ngành, lưới hội tụ thành biểu tượng ngôi sao rồi logo. Tagline lấy đúng câu trên promer.ai: <strong>Make people want what you sell.</strong> Nút CTA dùng lại nút có viền chạy màu của Shorts 01.</dd>
+        <dt>Cần anh chốt</dt><dd>Có ghi "1M+ ads created" (số công khai trên promer.ai, đọc ngày 22/10) dưới lưới không.</dd>
+        <dt>Âm thanh</dt><dd>Chime logo, nhạc kết theo 2 phách cuối.</dd>
+      </dl>
+      <div class="src"><img src="img/ads-evox/evox_25.5.jpg" alt="EvoX giây 25,5: quả cầu hạt sao có chuỗi DNA"><p><b>Lấy từ EvoX 24,5–30 giây:</b> hình ảnh lớn (quả cầu hạt sao, DNA) biến thành logo, câu ý nghĩa. <b>Đổi:</b> hạt sao thành lưới ad thật, nên câu kết vẫn nói về sản phẩm.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_luoi_the.jpg" alt=""><p><b>Pinterest (tìm "app promo video"):</b> Nhiều thẻ nội dung xếp lớp: lấy cho lưới hàng trăm ad trước khi hội thành logo.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_cua_so_bay.jpg" alt=""><p><b>Pinterest (tìm "ui motion design"):</b> Cửa sổ bay quanh chữ trên nền tím.</p></div>
+    </div>
+  </article>
+
+  <h3 style="font-size:18px">Người xem được gì (tự chấm trước khi anh duyệt)</h3>
+  <div class="value">
+    <div><h4>Vì sao họ dừng lại?<span class="score s-kha">Khá</span></h4><p>Tít "All photos. No video ads." đúng tình cảnh của người bán chỉ có ảnh. Cảnh người thật ánh ấm khác hẳn ad phẳng trong feed.</p></div>
+    <div><h4>Họ mang về được gì?<span class="score s-yeu">Yếu</span></h4><p>Đây vẫn là quảng cáo. Phần giá trị duy nhất: tên 3 góc làm ad (Product showcase, Premium look, Before/after) và ý "test 3 bản trước khi thuê quay". Muốn mạnh hơn thì A7 cần thêm một dòng "vì sao" cho từng góc.</p></div>
+    <div><h4>Xem xong họ làm gì khác?<span class="score s-kha">Khá</span></h4><p>Lấy một ảnh có sẵn ra thử tạo 3 bản ở promer.ai.</p></div>
+  </div>
+</section>
+
+<!-- ================= VIDEO B ================= -->
+<section class="video" id="video-b">
+  <div class="eyebrow">Video B · 24 giây · 6 cảnh · bản nháp</div>
+  <h2>"This ad is winning. Why?"</h2>
+  <div class="callout"><b>Chưa xác minh extension làm gì.</b> Luồng dưới đây lấy từ file seeding của Gemini: bấm extension trên một ad đối thủ → tách hook, góc bán, kịch bản → làm lại cho sản phẩm của mình. Em chưa thấy extension thật (Chrome Web Store không ra kết quả). Anh gửi link hoặc 3–4 ảnh chụp extension, em sửa cảnh B3–B5 cho đúng giao diện thật.</div>
+
+  <div class="tl" aria-label="Thời lượng các cảnh video B">
+    <a href="#b1" style="flex:2;background:#7A4220">B1</a>
+    <a href="#b2" style="flex:3;background:#5E3A24">B2</a>
+    <a href="#b3" style="flex:2;background:#2B2450">B3</a>
+    <a href="#b4" style="flex:6;background:#6D5DF6">B4</a>
+    <a href="#b5" style="flex:6;background:#A63BE8">B5</a>
+    <a href="#b6" style="flex:5;background:#EC4899">B6</a>
+  </div>
+  <div class="tl-legend"><span>0 s</span><span>12 s</span><span>24 s</span></div>
+
+  <article class="scene" id="b1">
+    <div class="frame warm"><div class="person" style="top:46%"></div><div class="desk"></div>
+      <div class="browser" style="top:30%;height:30%"><div class="bar"><i></i><i></i><i></i></div><div class="adcard" style="width:60%;left:20%"></div></div>
+      <div class="dim-top"></div>
+      <div class="hook"><b>This ad is winning.</b><b class="blk">Why?</b></div>
+      <div class="safe"></div><span class="tag">B1</span></div>
+    <div class="notes">
+      <div class="time">0,0 – 2,0 s · HOOK</div>
+      <h3>Người bán đang xem ad của đối thủ</h3>
+      <p class="vo">"Your competitor's ad is winning. Why?"</p>
+      <dl><dt>Hình</dt><dd>Cùng nhân vật và ánh sáng như Video A (một series). Trên laptop là thư viện quảng cáo, một ad đối thủ đang chạy.</dd>
+      <dt>Chữ trên hình</dt><dd><strong>THIS AD IS WINNING.</strong> / <strong>WHY?</strong> trên khối màu, vào trong 0,8 giây.</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_1.0.jpg" alt=""><p><b>Lấy từ EvoX 0–2 giây</b>, giống A1.</p></div>
+    </div>
+  </article>
+
+  <article class="scene" id="b2">
+    <div class="frame warm"><div class="person"></div><div class="desk"></div>
+      <div class="glass" style="left:6%;top:20%;transform:rotate(-5deg)"><b>screenshot_47.png</b></div>
+      <div class="glass" style="right:20%;top:30%;transform:rotate(4deg)"><b>notes.txt</b>hook = ??</div>
+      <div class="glass" style="left:12%;top:46%;transform:rotate(2deg)"><b>angle?</b>copy it how?</div>
+      <div class="sub">Screenshots <em>won't tell you.</em></div>
+      <div class="safe"></div><span class="tag">B2</span></div>
+    <div class="notes">
+      <div class="time">2,0 – 5,0 s · NỖI ĐAU</div>
+      <h3>Ảnh chụp màn hình và ghi chú chồng chất</h3>
+      <p class="vo">"Screenshots and notes won't tell you."</p>
+      <dl><dt>Hình</dt><dd>Thẻ kính bật ra: screenshot_47.png · notes.txt "hook = ??" · "angle? copy it how?".</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_3.5.jpg" alt=""><p><b>Lấy từ EvoX 2–4,5 giây</b>, giống A2.</p></div>
+    </div>
+  </article>
+
+  <article class="scene" id="b3">
+    <div class="frame dark"><div class="particles"></div>
+      <div class="browser" style="top:34%;height:14%"><div class="bar" style="height:40%"><i></i><i></i><i></i><span class="pext"></span></div></div>
+      <div class="cursor" style="right:20%;top:40%"></div>
+      <div class="sub"><em>Meet</em> the Promer extension.</div>
+      <div class="safe"></div><span class="tag">B3</span></div>
+    <div class="notes">
+      <div class="time">5,0 – 7,0 s · LỘ DIỆN</div>
+      <h3>Hạt sáng thành biểu tượng Promer trên thanh Chrome</h3>
+      <p class="vo">"Meet the Promer Chrome extension."</p>
+      <dl><dt>Hình</dt><dd>Thẻ ghi chú vỡ thành hạt, hạt bay lên góc phải thanh trình duyệt và thành icon Promer đang sáng. Không dùng logo Chrome thật nếu chưa kiểm luật thương hiệu của Google.</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_6.5.jpg" alt=""><p><b>Lấy từ EvoX 6–7 giây.</b> <b>Đổi:</b> logo hiện thành icon nhỏ trên thanh công cụ, đúng chỗ người dùng sẽ thấy.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_list_ext.jpg" alt=""><p><b>Pinterest (tìm "chrome extension promo"):</b> Pin extension đa số là ảnh liệt kê, không phải video: ít mẫu chuyển động, nên B3 dựa chính vào EvoX.</p></div>
+    </div>
+  </article>
+
+  <article class="scene" id="b4">
+    <div class="frame lightweb">
+      <div class="browser" style="top:22%;height:46%"><div class="bar"><i></i><i></i><i></i><span class="pext"></span></div>
+        <div class="adcard"></div>
+        <div class="panel"><b>HOOK</b><i></i><i style="width:70%"></i><b>ANGLE</b><i></i><i style="width:60%"></i><b>SCRIPT</b><i></i><i></i><i style="width:80%"></i></div></div>
+      <div class="sub">Hook. Angle. <em>Script.</em></div>
+      <div class="safe"></div><span class="tag">B4</span></div>
+    <div class="notes">
+      <div class="time">7,0 – 13,0 s · DEMO (giả định)</div>
+      <h3>Một cú bấm, ad bị tách thành từng phần</h3>
+      <p class="vo">"One click breaks down the hook, the angle, the script."</p>
+      <dl><dt>Hình</dt><dd>Bấm icon, khung bên phải trượt ra, ba khối Hook · Angle · Script tự điền lần lượt, đường nối chỉ vào đúng đoạn trên ad gốc.</dd>
+      <dt>Cần ảnh thật</dt><dd>Khung này phải dựng theo giao diện extension thật.</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_18.5.jpg" alt=""><p><b>Lấy từ EvoX 16–18 giây:</b> menu các skill bung ra, con trỏ chọn.</p></div>
+      <div class="src pin"><img src="img/ads-evox/pin_popup_ext.jpg" alt=""><p><b>Pinterest (tìm "chrome extension promo"):</b> Khung extension mở chồng lên trang web đang xem (Honey). Lấy cách đặt khung bên phải cho B4.</p></div>
+    </div>
+  </article>
+
+  <article class="scene" id="b5">
+    <div class="frame"><div class="out"></div><div class="counter">YOUR VERSION · 1 / 3</div>
+      <div class="sub">Then remakes it <em>for your product.</em></div>
+      <div class="safe"></div><span class="tag">B5</span></div>
+    <div class="notes">
+      <div class="time">13,0 – 19,0 s · KẾT QUẢ (giả định)</div>
+      <h3>Cùng công thức, sản phẩm của mình, 3 bản</h3>
+      <p class="vo">"Then remakes it for your product."</p>
+      <dl><dt>Hình</dt><dd>Ad đối thủ và ad của mình đứng cạnh nhau một nhịp (cùng hook, khác sản phẩm), rồi 3 bản của mình lần lượt chiếm trọn màn hình. Ad đối thủ phải là ad giả dựng lại, không dùng ad thật của thương hiệu khác.</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_21.5.jpg" alt=""><p><b>Lấy từ EvoX 20–23 giây.</b></p></div>
+    </div>
+  </article>
+
+  <article class="scene" id="b6">
+    <div class="frame lightweb"><img class="logo" src="img/ads-evox/logo.svg" alt="" style="top:40%;filter:none;width:58%">
+      <div class="cta">Add Promer to Chrome</div>
+      <div class="safe"></div><span class="tag">B6</span></div>
+    <div class="notes">
+      <div class="time">19,0 – 24,0 s · Ý NGHĨA + CTA</div>
+      <h3>"Find the angle others miss."</h3>
+      <p class="vo">"Promer. Find the angle others miss."</p>
+      <dl><dt>Hình</dt><dd>Lưới ad hội tụ thành logo như A9. Tagline lấy đúng câu trên promer.ai. CTA dẫn tới trang cài extension (link cần anh xác nhận).</dd></dl>
+      <div class="src"><img src="img/ads-evox/evox_28.5.jpg" alt=""><p><b>Lấy từ EvoX 27–30 giây.</b></p></div>
+    </div>
+  </article>
+</section>
+
+<!-- ================= NGUỒN ================= -->
+<section class="video" id="nguon">
+  <div class="eyebrow">Nguồn ý tưởng</div>
+  <h2>Lấy từ đâu</h2>
+  <p class="lead"><b>Pinterest 31/10/2026:</b> tìm 8 từ khoá (saas product video · ai app ad · app promo video · chrome extension promo · ui motion design · logo reveal particles · glass ui · product launch video), ảnh lưới lưu ở <code>02_Reference/pinterest_31-10/</code>, chọn 12 pin gắn vào từng cảnh (khung màu đỏ nhạt). Pinterest không cho lấy link pin khi chưa đăng nhập nên ghi nguồn bằng từ khoá. Chỉ học bố cục và chuyển động, không chép hình.</p>
+  <p class="lead">1) Video mẫu EvoX (EvoMap Global) anh quay trên Facebook Reels ngày 31/10/2026: khung 5 hồi, mốc giây, cách nối cảnh bằng vật. 2) Ảnh chụp app Promer thật trong bộ nhận diện: màn Ad Animation. 3) Câu chữ thương hiệu trên promer.ai. 4) Luật anh đã chốt: hook ≤ 2 giây chữ to, không cảnh gõ prompt, phụ đề một chỗ cố định, video 20–30 giây.</p>
+  <div class="refs">
+    <figure><img src="img/ads-evox/ui_choose.jpg" alt="Màn Choose ad script idea của Promer Ad Animation"><figcaption>App thật: Choose ad script idea, tick ý tưởng, nút Generate. Dùng cho cảnh A5, A6.</figcaption></figure>
+    <figure><img src="img/ads-evox/ui_result.jpg" alt="Màn Generated ad animations với 3 video kết quả"><figcaption>App thật: 3 video kết quả. Dùng cho cảnh A7. Ảnh túi đỏ chỉ để giữ chỗ, bản dựng thật dùng output mới.</figcaption></figure>
+  </div>
+  <footer>Khung trắng nét đứt trong mỗi hình là vùng an toàn của YouTube Shorts (x 76–885, y 250–1440 trên khung 1080×1920). Hình trong khung là phác thảo màu, chưa phải key visual.</footer>
+</section>
+</div>
