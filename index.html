@@ -208,7 +208,7 @@ function sched() {
 
 function list(kind) {
   if (kind === 'short') {
-    const ch = shorts.filter(v => v.group === 'channel'), id = shorts.filter(v => v.group === 'idea');
+    const ch = shorts.filter(v => v.group === 'channel').map((v, i) => [v, i]).sort((a, b) => (b[0].post ? 1 : 0) - (a[0].post ? 1 : 0) || (a[0].post && b[0].post ? b[0].post.day.localeCompare(a[0].post.day) : 0) || a[1] - b[1]).map(x => x[0]), id = shorts.filter(v => v.group === 'idea');
     return `<a class="back" href="#">← Trang đầu</a><h2>Shorts</h2>
     <p class="sub">Video dọc 20 đến 30 giây. Bấm vào video để xem nội dung.</p>
     <div class="group"><h3>Shorts của kênh</h3><p>${ch.length} video</p><div class="grid">${ch.map(card).join('')}</div></div>
