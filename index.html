@@ -99,10 +99,13 @@ dd b{color:var(--ink)}
 .more h3{font-size:17px;margin-top:8px}
 .more .eyebrow{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
 .more .lede,.more p{color:var(--ink-2);margin:0}
-.more .table-wrap{overflow-x:auto}
+.more .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:0 2px 8px rgba(26,26,26,.04);margin:14px 0}
 .more table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
-.more th,.more td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-.more th{color:var(--ink-3);font-weight:600}
+.more th,.more td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+.more th{background:var(--bg-2);color:var(--ink);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.more tr:last-child td{border-bottom:none}
+.more tr:nth-child(even) td{background:rgba(0,0,0,.015)}
+.more tr:hover td{background:rgba(135,62,255,.03)}
 .more ul{margin:0;padding-left:18px;color:var(--ink-2);display:flex;flex-direction:column;gap:6px}
 .more a{color:var(--violet)}
 footer{margin-top:36px;font-size:13px;color:var(--ink-3)}
